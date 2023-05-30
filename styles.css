@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 2rem;
+}
+
+/* Clear floats after the columns */
+.container:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*! RACK */
+.rackContainer {
+    margin: 8rem 2rem 2rem 2rem;
+}
+
+/*! OUTPUT */
+#outout-table {
+    display: flex;
+}
+
+
+/*! OPTIONS */
+.active {
+    background-color: aliceblue;
+}

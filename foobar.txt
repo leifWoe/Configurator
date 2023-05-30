@@ -1,0 +1,11 @@
+<button id="button"> X </button>
+        <div>
+            <p id="text">H</p>
+        </div>
+
+const foo = document.getElementById('text');
+const bar = document.getElementById('button');
+
+bar.addEventListener('click', () => {
+    foo.classList.toggle('hidden');
+});
