@@ -34,14 +34,21 @@
                 </table>
                 <table id="uplinksOutputTable">
                     <tr>
-                        <td id="defaultUplinkTd">
+                        <td id="uplinksDefaultTd">
                             1 Uplink
                         </td>
                     </tr>
                 </table>
-                <form action="post">
+                <table id="rspOutputTable">
+                    <tr>
+                        <td id="rspDefaultTd">
+                            mit Remote Service Paket
+                        </td>
+                    </tr>
+                </table>
+                <!--<form action="post">
                     <input type="hidden" name="q" value="a">
-                </form>
+                </form> -->
             </div>
         </div>
 
@@ -77,20 +84,20 @@
                 <!--! Uplinks -->
                 <div class="uplinksOptions">
                     <h2>Uplinks</h2>
-                    <button class="uplinksOptions minus" type="button">-</button>
-                    <button class="uplinksOptions plus" type="button">+</button>
+                    <button id="uplinksMinusOption" type="button">-</button>
+                    <button id="uplinksPlusOption" type="button">+</button>
                 </div>
 
                 <!--! Remotehand SERVICE PAKET -->
                 <div class="remotehandOptions">
                     <h2>Remotehand Service Paket</h2>
-                    <button class="remotehandOptions" type="button">Ja</button>
-                    <button class="remotehandOptions" type="button">Nein</button>
+                    <button id="rspNoOption" type="button">Ja</button>
+                    <button id="rspYesOption" type="button">Nein</button>
                 </div>
 
             </div>
         </div>
     </div>
-<script src="index.js"></script>
 </body>
+<script src="index.js"></script>
 </html>

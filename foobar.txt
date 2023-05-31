@@ -9,3 +9,37 @@ const bar = document.getElementById('button');
 bar.addEventListener('click', () => {
     foo.classList.toggle('hidden');
 });
+
+
+
+
+let uplinksCount = 1;
+let uplinksCurrentTd = null;
+
+const uplinksCounterUpdate = () => {
+    uplinksDefaultTd.textContent = {uplinksCount} + ' Uplinks'
+};
+window.onload=function() {
+    if (uplinksPlusOption) {
+        uplinksPlusOption.addEventListener('click', () => {
+            uplinksCount++;
+            uplinksCounterUpdate()
+        });
+    };
+
+    if (uplinksMinusOption) {
+        uplinksMinusOption.addEventListener('click', () => {
+            if (uplinksCount > 1) {
+                uplinksCount--;
+                uplinksCounterUpdate()
+            };
+
+    if (uplinksCurrentTd) {
+        uplinksCurrentTd.replaceWith(uplinksDefaultTd);
+    }
+    else {
+        const newRow = uplinksOutputTable.insertRow();
+        newRow.appendChild(uplinksDefaultTd);
+    }
+    uplinksCurrentTd = uplinksDefaultTd;
+    })}};
