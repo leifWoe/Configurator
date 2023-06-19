@@ -1,45 +1,10 @@
-<button id="button"> X </button>
-        <div>
-            <p id="text">H</p>
-        </div>
-
-const foo = document.getElementById('text');
-const bar = document.getElementById('button');
-
-bar.addEventListener('click', () => {
-    foo.classList.toggle('hidden');
-});
-
-
-
-
-let uplinksCount = 1;
-let uplinksCurrentTd = null;
-
-const uplinksCounterUpdate = () => {
-    uplinksDefaultTd.textContent = {uplinksCount} + ' Uplinks'
-};
-window.onload=function() {
-    if (uplinksPlusOption) {
-        uplinksPlusOption.addEventListener('click', () => {
-            uplinksCount++;
-            uplinksCounterUpdate()
+if (sendButton) {
+        sendButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            const data = new FormData(document.getElementById('sendForm'));
+            const url = document.getElementById('sendForm').action;
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', url);
+            xhr.send(data);
         });
     };
-
-    if (uplinksMinusOption) {
-        uplinksMinusOption.addEventListener('click', () => {
-            if (uplinksCount > 1) {
-                uplinksCount--;
-                uplinksCounterUpdate()
-            };
-
-    if (uplinksCurrentTd) {
-        uplinksCurrentTd.replaceWith(uplinksDefaultTd);
-    }
-    else {
-        const newRow = uplinksOutputTable.insertRow();
-        newRow.appendChild(uplinksDefaultTd);
-    }
-    uplinksCurrentTd = uplinksDefaultTd;
-    })}};

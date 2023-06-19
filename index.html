@@ -14,14 +14,14 @@
                 <img src="./assets/Screenshot 2023-05-16 132508.jpg" alt="'rack'">
             </div>
         </div>
-
+<!--! do some sort of VALUE in the background that updates the OPTION VALUES from NETBOX and could be posted to ZAMMAD-->
         <div class="outputContainer column">
             <div class="output">
                 <h1>Output</h1>
                 <table id="sizeOutputTable">
                     <tr>
                         <td id="sizeDefaultTd">
-                            1/1 Rack
+                            1/1 Rack 
                         </td>
                     </tr>
                 </table>
@@ -49,6 +49,22 @@
                 <!--<form action="post">
                     <input type="hidden" name="q" value="a">
                 </form> -->
+                <button type="button" id="sendOpenButton">
+                    Anfrage einreichen
+                </button>
+                <dialog id="sendButtonDialog">
+                    <h1>Anfrage einreichen</h1>
+                    <strong>Output Infos</strong>
+                    <p>lorem ipsum</p>
+                    <p>lorem ipsum</p>
+                    <p>lorem ipsum</p>
+                    <p>lorem ipsum</p>
+                    <form action="post" id="sendForm" name="sendForm" value="a">
+                        <button id="sendCloseButton" type="button">
+                            Send
+                        </button>
+                    </form>
+                </dialog>
             </div>
         </div>
 
@@ -56,43 +72,51 @@
             <div class="options">
                 <h1>Optionen</h1>
 
+
                 <!--! GRÖßEN -->
+
                 <div class="size"> 
                     <h2>Größen</h2>
                     <button class="sizeOptions" type="button">
-                        <strong>1/1</strong>
+                        1/1
                     </button>
                     <button class="sizeOptions" type="button">
-                        <strong>1/2</strong>
+                        1/2
                     </button>
                     <button class="sizeOptions" type="button">
-                        <strong>1/4</strong>
+                        1/4
                     </button>
                 </div>
 
+
                 <!--! ORT -->
+
                 <div class="location">
                     <h2>Ort</h2>
                     <button class="locationOptions" type="button">
-                        <strong>Insel im Cage</strong>
+                        Insel im Cage
                     </button>
                     <button class="locationOptions" type="button">
-                        <strong>Insel auf Freifläche</strong>
+                        Insel auf Freifläche
                     </button>
                 </div>
 
+
                 <!--! Uplinks -->
-                <div class="uplinksOptions">
+
+                <div class="uplinks">
                     <h2>Uplinks</h2>
                     <button id="uplinksMinusOption" type="button">-</button>
                     <button id="uplinksPlusOption" type="button">+</button>
                 </div>
 
+
                 <!--! Remotehand SERVICE PAKET -->
-                <div class="remotehandOptions">
+
+                <div class="rsp">
                     <h2>Remotehand Service Paket</h2>
-                    <button id="rspNoOption" type="button">Ja</button>
-                    <button id="rspYesOption" type="button">Nein</button>
+                    <button id="rspNoOption" class="rspOptions" type="button">Ja</button>
+                    <button id="rspYesOption" class="rspOptions" type="button">Nein</button>
                 </div>
 
             </div>
@@ -100,4 +124,5 @@
     </div>
 </body>
 <script src="index.js"></script>
+<script src="post.js"></script>
 </html>

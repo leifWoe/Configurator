@@ -1,5 +1,4 @@
-//! highlight choosen option and add value to output table
-//! SIZES aka GRÖßEN
+//! SIZES aka GRÖßEN //
 
 const sizeOutputTable = document.getElementById('sizeOutputTable');
 const sizeDefaultTd = document.getElementById('sizeDefaultTd');
@@ -28,7 +27,7 @@ sizeOptions.forEach(function(element) {
 });
 
 
-//! LOCATION aka ORT
+//! LOCATION aka ORT //
 
 const locationOutputTable = document.getElementById('locationOutputTable')
 const locationDefaultTd = document.getElementById('locationDefaultTd');
@@ -59,7 +58,8 @@ locationOptions.forEach(function(element) {
 });
 
 
-//! UPLINKS
+//! UPLINKS //
+
 window.addEventListener("DOMContentLoaded", () => {
     const uplinksDefaultTd = document.getElementById('uplinksDefaultTd');
     const uplinksPlusOption = document.getElementById('uplinksPlusOption');
@@ -72,22 +72,39 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (uplinksPlusOption) {
         uplinksPlusOption.addEventListener('click', () => {
+            uplinksMinusOption.disabled = false;
             uplinksCount++;
             uplinksCounterUpdate()
         })};
-
+    
     if (uplinksMinusOption) {
         uplinksMinusOption.addEventListener('click', () => {
             uplinksCount--;
             uplinksCounterUpdate()
+        if (uplinksCount === 0) {
+            uplinksMinusOption.disabled = true;
+        }
         })};
 });
 
-//! REMOTEHAND SERVICE PAKET
+
+//! REMOTEHAND SERVICE PAKET //
+
 window.addEventListener("DOMContentLoaded", () => {
-    const rspDefaultTd = document.getElementById('rspDefaultTd');
+    const rspOptions = document.querySelectorAll('.rspOptions');
     const rspNoOption = document.getElementById('rspNoOption');
     const rspYesOption = document.getElementById('rspYesOption');
+    const rspDefaultTd = document.getElementById('rspDefaultTd');
+    
+    rspOptions.forEach(function(element) {
+        element.addEventListener('click', function(e) {
+            
+            rspOptions.forEach(function(element) {
+                element.classList.remove('active');
+            });
+            this.classList.add('active');
+        });
+    });
 
     if (rspYesOption) {
         rspYesOption.addEventListener('click', () => {
@@ -98,4 +115,24 @@ window.addEventListener("DOMContentLoaded", () => {
         rspNoOption.addEventListener('click', () => {
             rspDefaultTd.textContent = 'mit Remote Service Paket';
     })};
+});
+
+
+//! SEND BUTTON //
+
+window.addEventListener("DOMContentLoaded", () => {
+    const sendOpenButton = document.getElementById('sendOpenButton');
+    const sendButtonDialog = document.getElementById('sendButtonDialog');
+    const sendCloseButton = document.getElementById('sendCloseButton');
+
+    if (sendOpenButton) {
+        sendOpenButton.addEventListener('click', () => {
+            sendButtonDialog.showModal();
+        })};
+    
+    if (sendCloseButton) {
+        sendCloseButton.addEventListener('click', () => {
+            sendButtonDialog.close();
+        })};
+    
 });

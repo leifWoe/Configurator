@@ -15,18 +15,25 @@
     clear: both;
 }
 
+
 /*! RACK */
 .rackContainer {
     margin: 8rem 2rem 2rem 2rem;
 }
 
+
 /*! OUTPUT */
-#outout-table {
-    display: flex;
-}
+
 
 
 /*! OPTIONS */
 .active {
     background-color: aliceblue;
+}
+
+
+/*! SEND BUTTON */
+#sendOpenButton {
+    margin-top: 24rem;
+    margin-left: 4rem;
 }
