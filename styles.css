@@ -37,3 +37,19 @@
     margin-top: 24rem;
     margin-left: 4rem;
 }
+
+input {
+    display: block;
+    margin-top: 1rem;
+}
+
+.no-border-unclickable {
+    width: 20rem;
+    border: none;
+    outline: none;
+    pointer-events: none;
+}
+
+#sendCloseButton {
+    margin: 1rem;
+}

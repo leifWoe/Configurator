@@ -11,7 +11,7 @@
     <div class="container">
         <div class="rackContainer column">
             <div class="rack">
-                <img src="./assets/Screenshot 2023-05-16 132508.jpg" alt="'rack'">
+                <img src="./assets/rack.jpg" alt="'rack'">
             </div>
         </div>
 
@@ -55,14 +55,15 @@
                 <dialog id="sendButtonDialog">
                     <h1>Anfrage einreichen</h1>
                     <strong>Output Infos</strong>
-                    <p>lorem ipsum</p>
-                    <p>lorem ipsum</p>
-                    <p>lorem ipsum</p>
-                    <p>lorem ipsum</p>
-                    <form action="post" id="sendForm" name="sendForm" value="a">
-                        <button id="sendCloseButton" type="button">
-                            Send
-                        </button>
+                    
+                    <form method="get" action="" id="sendForm" name="sendForm" value="a">
+
+                        <input type="text" name="sizeSendInfo" id="sizeSendInfo" value="1/1 Rack" class="no-border-unclickable">
+                        <input type="text" name="locationSendInfo" id="locationSendInfo" value="Insel im Cage" class="no-border-unclickable">
+                        <input type="text" name="uplinksSendInfo" id="uplinksSendInfo" value="1 Uplink" class="no-border-unclickable">
+                        <input type="text" name="rspSendInfo" id="rspSendInfo" value="mit Remote Service Paket" class="no-border-unclickable">
+                        
+                        <input type="submit" name="submit" id="sendCloseButton" value="send">
                     </form>
                 </dialog>
             </div>
@@ -125,6 +126,5 @@
 </body>
 <script src="js/get.js"></script>
 <script src="js/index.js"></script>
-<script src="js/post.js"></script>
+<script src="js/api_post.js"></script>
 </html>
-<!--todo do some sort of VALUE in the background that updates the OPTION VALUES from NETBOX and could be posted to ZAMMAD-->

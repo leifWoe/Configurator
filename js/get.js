@@ -5,13 +5,13 @@ const connection = mysql.createConnection({
     database: 'your_database_name'
 });
 
-    connection.query('SELECT * FROM ', (error, results) => {
-        if (error) {
+connection.query('SELECT * FROM ', (error, results) => {
+    if (error) {
         throw error;
-        }
-  
+    }
 
-    // todo add data to options
 
-    connection.end();
-    });
+// todo add the data from sql to options as values
+
+connection.end();
+});
