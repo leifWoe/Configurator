@@ -142,6 +142,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const sendOpenButton = document.getElementById('sendOpenButton');
     const sendButtonDialog = document.getElementById('sendButtonDialog');
     const sendCloseButton = document.getElementById('sendCloseButton');
+    NEXTPAGE_URL = "x"
 
     if (sendOpenButton) {
         sendOpenButton.addEventListener('click', () => {
@@ -152,7 +153,11 @@ window.addEventListener("DOMContentLoaded", () => {
         sendCloseButton.addEventListener('click', () => {
             sendButtonDialog.close();
         })};
-    
+
+    //todo Forward Location after close button is clicked
+    // sendCloseButton.onclick = () => {
+    //     location.href = NEXTPAGE_URL;
+    // };
 });
 
 //todo error handling

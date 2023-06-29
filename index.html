@@ -9,11 +9,14 @@
 </head>
 <body>
     <div class="container">
+
+
         <div class="rackContainer column">
             <div class="rack">
                 <img src="./assets/rack.jpg" alt="'rack'">
             </div>
         </div>
+
 
         <div class="outputContainer column">
             <div class="output">
@@ -46,9 +49,8 @@
                         </td>
                     </tr>
                 </table>
-                <!--<form action="post">
-                    <input type="hidden" name="q" value="a">
-                </form> -->
+                
+
                 <button type="button" id="sendOpenButton">
                     Anfrage einreichen
                 </button>
@@ -58,16 +60,19 @@
                     
                     <form method="get" action="" id="sendForm" name="sendForm" value="a">
 
-                        <input type="text" name="sizeSendInfo" id="sizeSendInfo" value="1/1 Rack" class="no-border-unclickable">
-                        <input type="text" name="locationSendInfo" id="locationSendInfo" value="Insel im Cage" class="no-border-unclickable">
-                        <input type="text" name="uplinksSendInfo" id="uplinksSendInfo" value="1 Uplink" class="no-border-unclickable">
-                        <input type="text" name="rspSendInfo" id="rspSendInfo" value="mit Remote Service Paket" class="no-border-unclickable">
+                        <input type="text" name="sizeSendInfo" id="sizeSendInfo" value="1/1 Rack" class="no-border" readonly>
+                        <input type="text" name="locationSendInfo" id="locationSendInfo" value="Insel im Cage" class="no-border" readonly>
+                        <input type="text" name="uplinksSendInfo" id="uplinksSendInfo" value="1 Uplink" class="no-border" readonly>
+                        <input type="text" name="rspSendInfo" id="rspSendInfo" value="mit Remote Service Paket" class="no-border" readonly>
                         
                         <input type="submit" name="submit" id="sendCloseButton" value="send">
                     </form>
                 </dialog>
+
+                
             </div>
         </div>
+
 
         <div class="optionsContainer column">
             <div class="options">

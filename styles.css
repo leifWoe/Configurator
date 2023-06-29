@@ -1,5 +1,12 @@
 .container {
     display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
 }
 
 .column {
@@ -38,16 +45,19 @@
     margin-left: 4rem;
 }
 
+#sendForm {
+    cursor: none;
+}
+
 input {
     display: block;
     margin-top: 1rem;
 }
 
-.no-border-unclickable {
+.no-border {
     width: 20rem;
     border: none;
     outline: none;
-    pointer-events: none;
 }
 
 #sendCloseButton {
