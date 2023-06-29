@@ -3,7 +3,7 @@ const REQUEST_URL = 'https://support.speedbone.de/api/v1/tickets'
 const API_TOKEN = "Token token=h_sHaMvYVfPRRJ_LdgW3F3018xsh44Iy2iox6onvIbhsazdQIRBODWgiDBeB_30E"
 
 
-// todo make api call work withut cors
+// todo make api call work without cors
 //? https://zammad/api/v1/tickets
 //? https://reqres.in/api/unknown
 //? https://docs.zammad.org/en/latest/api/intro.html#authentication

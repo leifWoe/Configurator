@@ -1,6 +1,6 @@
 ### Working curl command for creating tickets
 
-curl -X POST -H "Content-Type: application/json" -H "Authorization: Token token=f" -d '{
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Token token=h_sHaMvYVfPRRJ_LdgW3F3018xsh44Iy2iox6onvIbhsazdQIRBODWgiDBeB_30E" -d '{
 	"title": "Configurator title test ticket",
 	"group_id": 1,
 	"customer_id": 123,
@@ -10,8 +10,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Token token=
 		"type": "note",
 		"internal": false
 	}
-}' https://f
-
+}' https://support.speedbone.de/api/v1/tickets
 
 ### Working curl command for creating customers 
 
