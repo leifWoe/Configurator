@@ -4,6 +4,7 @@ const API_TOKEN = "Token token=h_sHaMvYVfPRRJ_LdgW3F3018xsh44Iy2iox6onvIbhsazdQI
 
 
 // todo make api call work without cors
+//? docu:
 //? https://zammad/api/v1/tickets
 //? https://reqres.in/api/unknown
 //? https://docs.zammad.org/en/latest/api/intro.html#authentication
@@ -12,7 +13,7 @@ const API_TOKEN = "Token token=h_sHaMvYVfPRRJ_LdgW3F3018xsh44Iy2iox6onvIbhsazdQI
 formElement.addEventListener('submit', event => {
   event.preventDefault();
   var formData = new FormData(formElement);
-  //? formData.get('sizeSendInfo'); set / append / delete
+  //? formData.get('sizeSendInfo'); set / append / delete -> could change input after user input
   
 
   var DATA = [];
@@ -24,29 +25,29 @@ formElement.addEventListener('submit', event => {
   var REQUEST_BODY = {
     "title": "Configurator title test ticket",
     "group_id": 1,
-    "customer_id": 123, //?user ID/ user login/ user email
+    "customer_id": 123, //todo user ID/ user login/ user email -> changing if customer needs to be created
     "article": {
       "subject": "Configurator test ticket",
       "body": DATA,
-      "type": "note", //?inquiry 
+      "type": "note", //?inquiry -> make spezial type for only these requests
       "internal": false
     }
   }
   
   
   fetch(REQUEST_URL, {
-    body: REQUEST_BODY, //JSON.stringify()
+    body: REQUEST_BODY, //? JSON.stringify()
     headers: {
       Authorization: API_TOKEN,
       'Content-Type': 'application/json'
     },
     method: 'POST',
-    // mode: 'no-cors', // because of request pre fly error 
+    //? mode: 'no-cors', // because of request pre fly error 
     
-  });
-  // .then(response => response.json())
-  // .then(response => console.log(response))
-  // .catch(error => console.log(error));
+  })
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(error => console.log(error));
 });
 
 
