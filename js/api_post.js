@@ -1,10 +1,9 @@
 const formElement = document.querySelector('#sendForm');
 const REQUEST_URL = 'https://support.speedbone.de/api/v1/tickets'
-const API_TOKEN = "Token token=h_sHaMvYVfPRRJ_LdgW3F3018xsh44Iy2iox6onvIbhsazdQIRBODWgiDBeB_30E"
+const API_TOKEN = 'h_sHaMvYVfPRRJ_LdgW3F3018xsh44Iy2iox6onvIbhsazdQIRBODWgiDBeB_30E'
+//! docu:
+// keine Ahnung was das fürn token ist: gSQGQq1HBAVzAKVYHIPu-gpL03V4U0AG1CogzpaaZ8uDcZGeeUsUSipn0MXQexDg
 
-
-// todo make api call work without cors
-//? docu:
 //? https://zammad/api/v1/tickets
 //? https://reqres.in/api/unknown
 //? https://docs.zammad.org/en/latest/api/intro.html#authentication
@@ -12,46 +11,55 @@ const API_TOKEN = "Token token=h_sHaMvYVfPRRJ_LdgW3F3018xsh44Iy2iox6onvIbhsazdQI
 
 formElement.addEventListener('submit', event => {
   event.preventDefault();
+
+
+  var API_HEADERS = new Headers();
+
+  API_HEADERS.append(
+    'Authorization', 'Token token=' + API_TOKEN);
+  API_HEADERS.append(
+    'Content-Type', 'application/json');
+
+  var REQUEST_OPTIONS = {
+    method: 'POST',
+    headers: API_HEADERS,
+  };
+
+  
   var formData = new FormData(formElement);
   //? formData.get('sizeSendInfo'); set / append / delete -> could change input after user input
   
-
   var DATA = [];
   for (const [key, value] of formData) {
-    DATA.push({key: value});
+    DATA.push({key: value});  
   }
   
-
   var REQUEST_BODY = {
     "title": "Configurator title test ticket",
     "group_id": 1,
-    "customer_id": 123, //todo user ID/ user login/ user email -> changing if customer needs to be created
+    "customer_id": 3,
     "article": {
       "subject": "Configurator test ticket",
       "body": DATA,
-      "type": "note", //?inquiry -> make spezial type for only these requests
+      "type": "note",
       "internal": false
     }
   }
+  // todo inquiry -> make spezial type 
+  // todo customer_id: user ID/ user login/ user email -> changing if customer needs to be created
   
-  
-  fetch(REQUEST_URL, {
-    body: REQUEST_BODY, //? JSON.stringify()
-    headers: {
-      Authorization: API_TOKEN,
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    //? mode: 'no-cors', // because of request pre fly error 
-    
-  })
-  .then(response => response.json())
+
+  fetch(
+    REQUEST_URL,
+    REQUEST_OPTIONS,
+    REQUEST_BODY, 
+  )
+  .then(response => response.text())
   .then(response => console.log(response))
-  .catch(error => console.log(error));
+  .catch(error => console.log('error', error));
 });
 
 
-// todo use second api call to create customer if customer not available
 // todo use this when status code is known:
 // .then((response) => {
 //     if (response.status === 200) {
@@ -67,21 +75,3 @@ formElement.addEventListener('submit', event => {
 //   .catch((error) => {
 //     console.error(error);
 //   });
-
-
-//! xml http request handler
-
-//   var http = new XMLHttpRequest();
-//   http.open("POST", REQUEST_URL, true);
-
-//   http.setRequestHeader("Content-type", "application/json");
-//   http.setRequestHeader("Authorization", "Token token="+API_TOKEN);
-
-//   http.onreadystatechange = function() {
-//     if(http.readyState == 4 && http.status == 200) {
-//         alert(http.responseText);
-//     }
-//   };
-
-//   http.send(REQUEST_BODY)
-// });
