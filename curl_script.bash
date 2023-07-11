@@ -22,4 +22,4 @@ curl -X POST -H "Authorization: Token token=h_sHaMvYVfPRRJ_LdgW3F3018xsh44Iy2iox
 
 
 
-curl -X GET -H "Content-Type: application/json" -H "Authorization: Token token=h_sHaMvYVfPRRJ_LdgW3F3018xsh44Iy2iox6onvIbhsazdQIRBODWgiDBeB_30E" https://support.speedbone.de/api/v1/groups/1
+curl -X GET -H "Content-Type: application/json" -H "Authorization: Token token=YHkpseDxJtYZ8ohGpa4EzwJjt9jNOFnZ2U5eshp9HEwoG9kxX_ooO4hjJM8ZzVo6" https://support.speedbone.de/api/v1/groups/1
