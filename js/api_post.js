@@ -41,11 +41,12 @@ formElement.addEventListener('submit', event => {
 
   var API_HEADERS = new Headers();
 
-  // API_HEADERS.append(
-  //   'Authorization', 'Token token=' + API_TOKEN);
   API_HEADERS.append(
-    'Authorization', 'Basic ' + btoa(USERNAME + ':' + PASSWORD)
+    'Authorization', 'Token token=' + API_TOKEN
   );
+  // API_HEADERS.append(
+  //   'Authorization', 'Basic ' + btoa(USERNAME + ':' + PASSWORD)
+  // );
   API_HEADERS.append(
     'Content-Type', 'application/json'
   );
