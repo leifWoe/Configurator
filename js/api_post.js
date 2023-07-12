@@ -1,6 +1,8 @@
 const formElement = document.querySelector('#sendForm');
-const REQUEST_URL = 'https://support.speedbone.de/api/v1/tickets'
-const API_TOKEN = 'YHkpseDxJtYZ8ohGpa4EzwJjt9jNOFnZ2U5eshp9HEwoG9kxX_ooO4hjJM8ZzVo6'
+const REQUEST_URL = 'https://support.speedbone.de/api/v1/tickets';
+const API_TOKEN = 'YHkpseDxJtYZ8ohGpa4EzwJjt9jNOFnZ2U5eshp9HEwoG9kxX_ooO4hjJM8ZzVo6';
+const USERNAME = 'bakre@speedbone.de';
+const PASSWORD = 'u#c2BepYC6j1$09N';
 //! docu:
 // only agent api token: YHkpseDxJtYZ8ohGpa4EzwJjt9jNOFnZ2U5eshp9HEwoG9kxX_ooO4hjJM8ZzVo6
 
@@ -39,10 +41,14 @@ formElement.addEventListener('submit', event => {
 
   var API_HEADERS = new Headers();
 
+  // API_HEADERS.append(
+  //   'Authorization', 'Token token=' + API_TOKEN);
   API_HEADERS.append(
-    'Authorization', 'Token token=' + API_TOKEN);
+    'Authorization', 'Basic ' + btoa(USERNAME + ':' + PASSWORD)
+  );
   API_HEADERS.append(
-    'Content-Type', 'application/json');
+    'Content-Type', 'application/json'
+  );
 
 
   var REQUEST_OPTIONS = {
