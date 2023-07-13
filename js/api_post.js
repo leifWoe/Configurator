@@ -1,4 +1,3 @@
-// KENANS
 const formElement = document.querySelector('#sendForm');
 const REQUEST_URL = 'https://support.speedbone.de/api/v1/tickets';
 const API_TOKEN = 'YHkpseDxJtYZ8ohGpa4EzwJjt9jNOFnZ2U5eshp9HEwoG9kxX_ooO4hjJM8ZzVo6';
@@ -32,7 +31,8 @@ formElement.addEventListener('submit', event => {
       };
       
       fetch(REQUEST_URL, requestOptions)
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.log('Error:', error));
+        // .then((response) => response.json())
+        // .then((data) => console.log(data))
+        // .catch((error) => console.log('Error:', error))
+        ;
 });
