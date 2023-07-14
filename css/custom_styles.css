@@ -45,6 +45,15 @@
     margin-left: 4rem;
 }
 
+#sendButtonDialog {
+    padding: 4%;
+    border: none;
+}
+
+#dialogButtonDiv {
+    display: flex;
+}
+
 #sendForm {
     cursor: none;
 }
@@ -61,5 +70,10 @@ input {
 }
 
 #sendCloseButton {
+    margin: 1rem;
+    margin-left: 25%;
+}
+
+#closeButton {
     margin: 1rem;
 }

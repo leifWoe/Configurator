@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/custom_styles.css">
     <title>Configurator</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
 
         <div class="rackContainer column">
             <div class="rack">
-                <img src="./assets/rack.jpg" alt="'rack'">
+                <img src="/assets/rack.jpg" alt="'rack'">
             </div>
         </div>
 
@@ -54,6 +54,8 @@
                 <button type="button" id="sendOpenButton">
                     Anfrage einreichen
                 </button>
+                 
+                
                 <dialog id="sendButtonDialog">
                     <h1>Anfrage einreichen</h1>
                     <strong>Output Infos</strong>
@@ -64,8 +66,10 @@
                         <input type="text" name="locationSendInfo" id="locationSendInfo" value="Insel im Cage" class="no-border" readonly>
                         <input type="text" name="uplinksSendInfo" id="uplinksSendInfo" value="1 Uplink" class="no-border" readonly>
                         <input type="text" name="rspSendInfo" id="rspSendInfo" value="mit Remote Service Paket" class="no-border" readonly>
-                        
-                        <input type="submit" name="submit" id="sendCloseButton" value="send">
+                        <div id="dialogButtonDiv">
+                            <input type="submit" name="submit" id="sendCloseButton" value="send">
+                            <input type="button" name="close" id="closeButton" value="close">
+                        </div>
                     </form>
                 </dialog>
 

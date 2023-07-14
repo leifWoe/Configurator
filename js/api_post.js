@@ -21,7 +21,7 @@ formElement.addEventListener('submit', event => {
         body: JSON.stringify({
           title: 'Configurator Inquiry',
           group_id: 1,
-          // priority_id: 3, // state_id: 2, // type: 'email',
+          // priority_id: 3,
           customer: '', // todo customer_id: user ID/ user login/ user email -> changing if customer needs to be created
           article: {
             body: DATA,
