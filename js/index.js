@@ -124,14 +124,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (rspYesOption) {
         rspYesOption.addEventListener('click', () => {
-            rspDefaultTd.textContent = 'ohne Remote Service Paket';
-            rspSendInfo.value = 'ohne Remote Service Paket';
+            rspDefaultTd.textContent = 'without Remote Service Package';
+            rspSendInfo.value = 'without Remote Service Package';
     })};
 
     if (rspNoOption) {
         rspNoOption.addEventListener('click', () => {
-            rspDefaultTd.textContent = 'mit Remote Service Paket';
-            rspSendInfo.value = 'mit Remote Service Paket';
+            rspDefaultTd.textContent = 'Remote Service Package';
+            rspSendInfo.value = 'Remote Service Package';
     })};
 });
 
