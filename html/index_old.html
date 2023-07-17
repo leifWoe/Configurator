@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/custom_styles.css">
+    <title>Configurator</title>
+</head>
+<body>
+    <div class="container">
+
+
+        <div class="rackContainer column">
+            <div class="rack">
+                <img src="/assets/img/rack.jpg" alt="'rack'">
+            </div>
+        </div>
+
+
+        <div class="outputContainer column">
+            <div class="output">
+                <h1>Output</h1>
+                <table id="sizeOutputTable">
+                    <tr>
+                        <td id="sizeDefaultTd">
+                            1/1 Rack 
+                        </td>
+                    </tr>
+                </table>
+                <table id="locationOutputTable">
+                    <tr>
+                        <td id="locationDefaultTd">
+                            Insel im Cage
+                        </td>
+                    </tr>
+                </table>
+                <table id="uplinksOutputTable">
+                    <tr>
+                        <td id="uplinksDefaultTd">
+                            1 Uplink
+                        </td>
+                    </tr>
+                </table>
+                <table id="rspOutputTable">
+                    <tr>
+                        <td id="rspDefaultTd">
+                            mit Remote Service Paket
+                        </td>
+                    </tr>
+                </table>
+                
+
+                <button type="button" id="sendOpenButton">
+                    Anfrage einreichen
+                </button>
+                 
+                
+                <dialog id="sendButtonDialog">
+                    <h1>Anfrage einreichen</h1>
+                    <strong>Output Infos</strong>
+                    
+                    <form method="get" action="" id="sendForm" name="sendForm" value="a">
+
+                        <input type="text" name="sizeSendInfo" id="sizeSendInfo" value="1/1 Rack" class="no-border" readonly>
+                        <input type="text" name="locationSendInfo" id="locationSendInfo" value="Insel im Cage" class="no-border" readonly>
+                        <input type="text" name="uplinksSendInfo" id="uplinksSendInfo" value="1 Uplink" class="no-border" readonly>
+                        <input type="text" name="rspSendInfo" id="rspSendInfo" value="mit Remote Service Paket" class="no-border" readonly>
+                        <div id="dialogButtonDiv">
+                            <input type="submit" name="submit" id="sendCloseButton" value="send">
+                            <input type="button" name="close" id="closeButton" value="close">
+                        </div>
+                    </form>
+                </dialog>
+
+                
+            </div>
+        </div>
+
+
+        <div class="optionsContainer column">
+            <div class="options">
+                <h1>Optionen</h1>
+
+
+                <!--! GRÖßEN -->
+
+                <div class="size"> 
+                    <h2>Größen</h2>
+                    <button class="sizeOptions" type="button">
+                        1/1
+                    </button>
+                    <button class="sizeOptions" type="button">
+                        1/2
+                    </button>
+                    <button class="sizeOptions" type="button">
+                        1/4
+                    </button>
+                </div>
+
+
+                <!--! ORT -->
+
+                <div class="location">
+                    <h2>Ort</h2>
+                    <button class="locationOptions" type="button">
+                        Insel im Cage
+                    </button>
+                    <button class="locationOptions" type="button">
+                        Insel auf Freifläche
+                    </button>
+                </div>
+
+
+                <!--! Uplinks -->
+
+                <div class="uplinks">
+                    <h2>Uplinks</h2>
+                    <button id="uplinksMinusOption" type="button">-</button>
+                    <button id="uplinksPlusOption" type="button">+</button>
+                </div>
+
+
+                <!--! Remotehand SERVICE PAKET -->
+
+                <div class="rsp">
+                    <h2>Remotehand Service Paket</h2>
+                    <button id="rspNoOption" class="rspOptions" type="button">Ja</button>
+                    <button id="rspYesOption" class="rspOptions" type="button">Nein</button>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</body>
+<script src="/js/index.js"></script>
+<script src="/js/api_post.js"></script>
+</html>
