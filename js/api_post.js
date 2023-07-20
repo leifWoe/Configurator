@@ -6,7 +6,8 @@ const API_TOKEN = 'YHkpseDxJtYZ8ohGpa4EzwJjt9jNOFnZ2U5eshp9HEwoG9kxX_ooO4hjJM8Zz
 formElement.addEventListener('submit', event => {
     event.preventDefault();
 
-    var formData = new FormData(formElement); //? formData.get('sizeSendInfo'); set / append / delete -> could change input after user input
+    var formData = new FormData(formElement); 
+    //todo formData.get('sizeSendInfo'); set / append / delete -> change readability
     var DATA = [];
     for (const [key, value] of formData) {
         DATA.push({ key: value });

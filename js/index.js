@@ -1,105 +1,110 @@
+function markOptionActive(elementClicked) {
+    
+    elementClicked.classList.add('active');
+};
+
+
+function unmarkAllOptions(elementsOption) {
+    elementsOption.forEach(function(elementClicked) {
+        elementClicked.classList.remove('active')
+    });
+};
+
+
+function updateOutput(elementClicked, elementShownValue, elementSendInfo) {
+
+    elementShownValue.textContent = elementClicked.textContent;
+    
+    elementSendInfo.value = elementClicked.textContent;
+
+};
+
+
+function updateOutputPlusButton(counter, elementShownValue, elementSendInfo, elementMinusOption) {
+
+    elementMinusOption.disabled = false;
+
+    var updatedCounter = counter + 1; 
+
+    
+    elementShownValue.textContent = updatedCounter;
+    elementSendInfo.textContent = updatedCounter, "Uplinks";
+
+    return updatedCounter;
+};
+
+function updateOutputMinusButton(counter, elementShownValue, elementSendInfo, elementMinusOption) {
+    
+    if (counter === 0) {
+        elementMinusOption.disabled = true;
+    };
+    
+    counter --;
+    console.log(uplinksCounter);
+    
+    elementShownValue.textContent = counter;
+    elementSendInfo.textContent = counter, "Uplinks";
+}
+
+
+
+
+
 //! SIZES aka GRÖßEN //
 
-const sizeOutputTable = document.getElementById('sizeOutputTable');
-const sizeDefaultTd = document.getElementById('sizeDefaultTd');
+
+const sizeShownValue = document.getElementById('sizeValue');
 const sizeOptions = document.querySelectorAll('.sizeOptions');
 const sizeSendInfo = document.getElementById('sizeSendInfo');
-let sizeCurrentTd = null;
 
-sizeOptions.forEach(function(element) {
-    element.addEventListener('click', function(e) {
+sizeOptions.forEach(function(option) {
+
+    option.addEventListener('click', function() {
         
-        sizeOptions.forEach(function(element) {
-        element.classList.remove('active');
-        });
-        this.classList.add('active');
+        unmarkAllOptions(sizeOptions);
 
-        // get rid of whitespaces adding to send event
-        sizeDefaultTd.textContent = this.textContent;
+        markOptionActive(option);
 
-        const sizeDefaultTdTextContent = sizeDefaultTd.textContent.trim();
-        sizeSendInfo.value = sizeDefaultTdTextContent + ' Rack';
-
-        sizeDefaultTd.textContent = this.textContent + 'Rack';
-
-
-    if (sizeCurrentTd) {
-        sizeCurrentTd.replaceWith(sizeDefaultTd);
-    }
-    else {
-        const newRow = sizeOutputTable.insertRow();
-        newRow.appendChild(sizeDefaultTd);
-    }
-    sizeCurrentTd = sizeDefaultTd;
+        updateOutput(option, sizeShownValue, sizeSendInfo);
     });
 });
 
 
 //! LOCATION aka ORT //
 
-const locationOutputTable = document.getElementById('locationOutputTable')
-const locationDefaultTd = document.getElementById('locationDefaultTd');
+const locationValue = document.getElementById('locationValue')
 const locationOptions = document.querySelectorAll('.locationOptions');
 const locationSendInfo = document.getElementById('locationSendInfo');
-let locationCurrentTd = null;
 
-locationOptions.forEach(function(element) {
-    element.addEventListener('click', function(e) {
+locationOptions.forEach(function(option) {
 
-        // show choosen Option 
-        locationOptions.forEach(function(element) {
-            element.classList.remove('active');
-        });
-        this.classList.add('active');
+    option.addEventListener('click', function() {
+        
+        unmarkAllOptions(locationOptions);
 
-        locationDefaultTd.textContent = this.textContent;
+        markOptionActive(option);
 
-        const locationDefaultTdTextContent = locationDefaultTd.textContent.trim();
-        locationSendInfo.value = locationDefaultTdTextContent;
-    
-    //
-    if (locationCurrentTd) {
-        locationCurrentTd.replaceWith(locationDefaultTd);
-    }
-    else {
-        const newRow = locationOutputTable.insertRow();
-        newRow.appendChild(locationDefaultTd);
-    }
-    locationCurrentTd = locationDefaultTd;
+        updateOutput(option, locationValue, locationSendInfo);
     });
 });
 
 
 //! UPLINKS //
 
-window.addEventListener("DOMContentLoaded", () => {
-    const uplinksDefaultTd = document.getElementById('uplinksDefaultTd');
-    const uplinksPlusOption = document.getElementById('uplinksPlusOption');
-    const uplinksMinusOption = document.getElementById('uplinksMinusOption');
-    const uplinksSendInfo = document.getElementById('uplinksSendInfo');
-    let uplinksCount = 1;
+const uplinksValue = document.getElementById('uplinksValue');
+const uplinksPlusOption = document.getElementById('uplinksPlusOption');
+const uplinksMinusOption = document.getElementById('uplinksMinusOption');
+const uplinksSendInfo = document.getElementById('uplinksSendInfo');
+uplinksCounter = 1;
 
-    const uplinksCounterUpdate = () => {
-        uplinksDefaultTd.textContent = uplinksCount + ' Uplink(s)'
-        uplinksSendInfo.value = uplinksCount + ' Uplink(s)'
-        };
-
-    if (uplinksPlusOption) {
-        uplinksPlusOption.addEventListener('click', () => {
-            uplinksMinusOption.disabled = false;
-            uplinksCount++;
-            uplinksCounterUpdate()
-        })};
+uplinksPlusOption.addEventListener('click', () => {
     
-    if (uplinksMinusOption) {
-        uplinksMinusOption.addEventListener('click', () => {
-            uplinksCount--;
-            uplinksCounterUpdate()
-        if (uplinksCount === 0) {
-            uplinksMinusOption.disabled = true;
-        }
-        })};
+    updateOutputPlusButton(uplinksCounter, uplinksValue, uplinksSendInfo, uplinksMinusOption);
+});
 
+uplinksMinusOption.addEventListener('click', () => {
+
+    updateOutputMinusButton(uplinksCounter, uplinksValue, uplinksSendInfo, uplinksMinusOption);
 });
 
 
@@ -160,6 +165,8 @@ window.addEventListener("DOMContentLoaded", () => {
     // };
 });
 
+
+// todo remove "when window loaded logic - add it with defer when script is called"
 //todo error handling
 //todo get.js 
 //      -> https://netbox.intern.speedbone.work/dcim/racks/

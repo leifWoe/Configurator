@@ -37,24 +37,26 @@
                   <div class="row">
                     <div class="outputContainer column">
                       <div class="output">
-                          <table id="sizeOutputTable">
+                          <table>
                               <tr>
-                                  <td id="sizeDefaultTd">
-                                      1/1 Rack 
+                                  <td>
+                                      <span id="sizeValue">1/1</span>
+                                      <span>Rack</span> 
                                   </td>
                               </tr>
                           </table>
-                          <table id="locationOutputTable">
+                          <table>
                               <tr>
-                                  <td id="locationDefaultTd">
-                                      Insel im Cage
+                                  <td>
+                                      <span id="locationValue">in Cage</span>
                                   </td>
                               </tr>
                           </table>
-                          <table id="uplinksOutputTable">
+                          <table>
                               <tr>
-                                  <td id="uplinksDefaultTd">
-                                      1 Uplink
+                                  <td>
+                                      <span id="uplinksValue">1</span>
+                                      <span>Uplink(s)</span>
                                   </td>
                               </tr>
                           </table>
@@ -71,7 +73,7 @@
                   <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
                       <div> <!--todo href="" -->
-                        <a class="btn btn-block btn-default" id="sendOpenButton">Submit request</a>
+                        <a class="btn btn-block btn-default" id="sendOpenButton">Submit</a>
                       </div>
                      
                     
@@ -79,7 +81,7 @@
                           <h1>Anfrage einreichen</h1>
                           <strong>Output Infos</strong>
                           
-                          <form method="get" action="" id="sendForm" name="sendForm" value="a">
+                          <form method="get" action="" id="sendForm" name="sendForm">
       
                               <input type="text" name="sizeSendInfo" id="sizeSendInfo" value="1/1 Rack" class="no-border" readonly>
                               <input type="text" name="locationSendInfo" id="locationSendInfo" value="Insel im Cage" class="no-border" readonly>
@@ -179,6 +181,6 @@
     </div>
   </section>
 </body>
-<script src="/js/index.js"></script>
+<script src="/js/index.js" defer></script>
 <script src="/js/api_post.js"></script>
 </html>
