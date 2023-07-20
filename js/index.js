@@ -1,5 +1,4 @@
 function markOptionActive(elementClicked) {
-    
     elementClicked.classList.add('active');
 };
 
@@ -12,7 +11,6 @@ function unmarkAllOptions(elementsOption) {
 
 
 function updateOutput(elementClicked, elementShownValue, elementSendInfo) {
-
     elementShownValue.textContent = elementClicked.textContent;
     
     elementSendInfo.value = elementClicked.textContent;
@@ -20,30 +18,27 @@ function updateOutput(elementClicked, elementShownValue, elementSendInfo) {
 };
 
 
-function updateOutputPlusButton(counter, elementShownValue, elementSendInfo, elementMinusOption) {
-
+function updateOutputPlusButton(elementShownValue, elementSendInfo, elementMinusOption) {
     elementMinusOption.disabled = false;
 
-    var updatedCounter = counter + 1; 
-
+    let currentValue = parseInt(elementShownValue.textContent);
+    currentValue++;
     
-    elementShownValue.textContent = updatedCounter;
-    elementSendInfo.textContent = updatedCounter, "Uplinks";
-
-    return updatedCounter;
+    elementShownValue.textContent = currentValue;
+    elementSendInfo.value = currentValue+ " Uplink(s)";
 };
 
-function updateOutputMinusButton(counter, elementShownValue, elementSendInfo, elementMinusOption) {
-    
-    if (counter === 0) {
+function updateOutputMinusButton(elementShownValue, elementSendInfo, elementMinusOption) {   
+    let currentValue = parseInt(elementShownValue.textContent);
+
+    let newValue = currentValue - 1;
+
+    if (newValue === 0) {
         elementMinusOption.disabled = true;
     };
     
-    counter --;
-    console.log(uplinksCounter);
-    
-    elementShownValue.textContent = counter;
-    elementSendInfo.textContent = counter, "Uplinks";
+    elementShownValue.textContent = newValue;
+    elementSendInfo.value = newValue+ " Uplink(s)";
 }
 
 
@@ -95,16 +90,15 @@ const uplinksValue = document.getElementById('uplinksValue');
 const uplinksPlusOption = document.getElementById('uplinksPlusOption');
 const uplinksMinusOption = document.getElementById('uplinksMinusOption');
 const uplinksSendInfo = document.getElementById('uplinksSendInfo');
-uplinksCounter = 1;
 
 uplinksPlusOption.addEventListener('click', () => {
     
-    updateOutputPlusButton(uplinksCounter, uplinksValue, uplinksSendInfo, uplinksMinusOption);
+    updateOutputPlusButton(uplinksValue, uplinksSendInfo, uplinksMinusOption);
 });
 
 uplinksMinusOption.addEventListener('click', () => {
 
-    updateOutputMinusButton(uplinksCounter, uplinksValue, uplinksSendInfo, uplinksMinusOption);
+    updateOutputMinusButton(uplinksValue, uplinksSendInfo, uplinksMinusOption);
 });
 
 
@@ -167,8 +161,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 // todo remove "when window loaded logic - add it with defer when script is called"
-//todo error handling
+
 //todo get.js 
 //      -> https://netbox.intern.speedbone.work/dcim/racks/
 //      -> mysql usage testing with branch from nari
-//todo styles.css
+//todo styles.css for pop up 
+
+// todo tests, documentation, error handling
+
+// principles angewendet: reusability, naming conventions, dry, modularity, single responsibility principle
