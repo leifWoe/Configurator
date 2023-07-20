@@ -104,35 +104,23 @@ uplinksMinusOption.addEventListener('click', () => {
 
 //! REMOTEHAND SERVICE PAKET //
 
-window.addEventListener("DOMContentLoaded", () => {
-    const rspOptions = document.querySelectorAll('.rspOptions');
-    const rspNoOption = document.getElementById('rspNoOption');
-    const rspYesOption = document.getElementById('rspYesOption');
-    const rspDefaultTd = document.getElementById('rspDefaultTd');
-    const rspSendInfo = document.getElementById('rspSendInfo');
-    
-    rspOptions.forEach(function(element) {
-        element.addEventListener('click', function(e) {
-            
-            rspOptions.forEach(function(element) {
-                element.classList.remove('active');
-            });
-            this.classList.add('active');
-        });
+
+const rspOptions = document.querySelectorAll('.rspOptions');
+const rspValue = document.getElementById('rspValue');
+const rspSendInfo = document.getElementById('rspSendInfo');
+
+rspOptions.forEach(function(option) {
+
+    option.addEventListener('click', function() {
+        
+        unmarkAllOptions(rspOptions);
+
+        markOptionActive(option);
+
+        updateOutput(option, rspValue, rspSendInfo);
     });
-
-    if (rspYesOption) {
-        rspYesOption.addEventListener('click', () => {
-            rspDefaultTd.textContent = 'without Remote Service Package';
-            rspSendInfo.value = 'without Remote Service Package';
-    })};
-
-    if (rspNoOption) {
-        rspNoOption.addEventListener('click', () => {
-            rspDefaultTd.textContent = 'Remote Service Package';
-            rspSendInfo.value = 'Remote Service Package';
-    })};
 });
+
 
 
 //! SEND BUTTON //
@@ -161,6 +149,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 // todo remove "when window loaded logic - add it with defer when script is called"
+
+// todo add picture
+
+// todo add pricing
 
 //todo get.js 
 //      -> https://netbox.intern.speedbone.work/dcim/racks/

@@ -60,10 +60,11 @@
                                   </td>
                               </tr>
                           </table>
-                          <table id="rspOutputTable">
+                          <table>
                               <tr>
-                                  <td id="rspDefaultTd">
-                                      Remote Service Package
+                                  <td>
+                                      <span id="rspValue">Yes,</span>
+                                      <span>Remote Service Package</span>
                                   </td>
                               </tr>
                           </table>
@@ -83,14 +84,23 @@
                           
                           <form method="get" action="" id="sendForm" name="sendForm">
       
-                              <input type="text" name="sizeSendInfo" id="sizeSendInfo" value="1/1 Rack" class="no-border" readonly>
-                              <input type="text" name="locationSendInfo" id="locationSendInfo" value="Insel im Cage" class="no-border" readonly>
-                              <input type="text" name="uplinksSendInfo" id="uplinksSendInfo" value="1 Uplink" class="no-border" readonly>
-                              <input type="text" name="rspSendInfo" id="rspSendInfo" value="mit Remote Service Paket" class="no-border" readonly>
-                              <div id="dialogButtonDiv">
-                                  <input type="submit" name="submit" id="sendCloseButton" value="send">
-                                  <input type="button" name="close" id="closeButton" value="close">
-                              </div>
+                            <span>Size</span>
+                            <input type="text" name="sizeSendInfo" id="sizeSendInfo" value="1/1 Rack" class="no-border" readonly>
+                            
+                            <span>Location</span>
+                            <input type="text" name="locationSendInfo" id="locationSendInfo" value="Insel in Cage" class="no-border" readonly>
+                            
+                            <span>Uplinks</span>
+                            <input type="text" name="uplinksSendInfo" id="uplinksSendInfo" value="1" class="no-border" readonly>
+                            
+                            <span>Remote Service Package</span>
+                            <input type="text" name="rspSendInfo" id="rspSendInfo" value="Yes" class="no-border" readonly>
+                            
+                            <div id="dialogButtonDiv">
+                                <input type="submit" name="submit" id="sendCloseButton" value="send">
+                                <input type="button" name="close" id="closeButton" value="close">
+                            </div>
+                            
                           </form>
                       </dialog>
 
