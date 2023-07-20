@@ -125,30 +125,28 @@ rspOptions.forEach(function(option) {
 
 //! SEND BUTTON //
 
-window.addEventListener("DOMContentLoaded", () => {
-    const sendOpenButton = document.getElementById('sendOpenButton');
-    const sendButtonDialog = document.getElementById('sendButtonDialog');
-    const sendCloseButton = document.getElementById('sendCloseButton');
-    NEXTPAGE_URL = "x"
+const sendOpenButton = document.getElementById('sendOpenButton');
+const sendButtonDialog = document.getElementById('sendButtonDialog');
+const sendCloseButton = document.getElementById('sendCloseButton');
+NEXTPAGE_URL = "x"
 
-    if (sendOpenButton) {
-        sendOpenButton.addEventListener('click', () => {
-            sendButtonDialog.showModal();
-        })};
-    
-    if (sendCloseButton) {
-        sendCloseButton.addEventListener('click', () => {
-            sendButtonDialog.close();
-        })};
+if (sendOpenButton) {
+    sendOpenButton.addEventListener('click', () => {
+        sendButtonDialog.showModal();
+    })};
 
-    //todo Forward Location after close button is clicked
-    // sendCloseButton.onclick = () => {
-    //     location.href = NEXTPAGE_URL;
+if (sendCloseButton) {
+    sendCloseButton.addEventListener('click', () => {
+        sendButtonDialog.close();
+    })};
+
+//todo Forward Location after close button is clicked
+// sendCloseButton.onclick = () => {
+//     location.href = NEXTPAGE_URL;
     // };
-});
 
 
-// todo remove "when window loaded logic - add it with defer when script is called"
+// todo remove "when window loaded logic - added it with defer when script is called"
 
 // todo add picture
 
