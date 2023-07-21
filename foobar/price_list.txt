@@ -1,0 +1,60 @@
+Racks:
+
+1/1 Rack 800x1200
+Monatlich: 650€
+Setup: 650€
+im Cage Setup und monatlich + 50€
+
+1/2 Rack 800x1200
+Monatlich: 420€
+Setup: 420€
+im Cage Setup und monatlich + 50€
+
+1/4 Rack 800x1200
+Monatlich: 260€
+Setup: 260€
+haben wir aktuell nicht im Cage
+
+Racks mit den Maßen 600x1000 vermieten wir aktuell nicht.
+-------------------
+
+Stromfeeds:
+der erste Stromfeed ist bei jedem Rack inkl.
+jeder weitere kostet:
+
+Monatlich 40€
+Setup: 200€
+-------------------
+
+Strom:
+
+verbrauchsabhängig: 0,3405€ pro kWh ohne MwSt.
+-------------------
+
+Uplink:
+der erste Uplink ist bei jedem Rack inkl.
+jeder weitere kostet:
+
+Monatlich 12€
+Setup: 12€
+-------------------
+
+CrossConnects:
+
+Monatlich 50€
+Setup: 200€
+-------------------
+
+Remoteservice Paket
+ist noch ein Konzept.
+Aktuell bezahlen die Kunden die einzelnen Arbeitseinheiten.
+Das Paket wäre wie ein Abo mit einer Monatlichen Summe.
+Monatlich: 200€
+der Preis kann sich noch ändern.
+-------------------
+
+Backup Service Paket
+ist noch ein Konzept.
+Backup könnten wir gegen eine Monatliche Gebühr anbieten
+Monatlich: 50€
+der Preis kann sich noch ändern
