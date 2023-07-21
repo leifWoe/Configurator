@@ -10,26 +10,24 @@ function unmarkAllOptions(elementsOption) {
 };
 
 
-function updateOutput(elementClicked, elementShownValue, elementSendInfo) {
-    elementShownValue.textContent = elementClicked.textContent;
-    
-    elementSendInfo.value = elementClicked.textContent;
-
+function updateOutput(elementClicked, elementShownValue) {
+    elementShownValue.value = elementClicked.textContent;
 };
 
 
-function updateOutputPlusButton(elementShownValue, elementSendInfo, elementMinusOption) {
+function updateOutputPlusButton(elementShownValue, elementMinusOption) {
     elementMinusOption.disabled = false;
 
-    let currentValue = parseInt(elementShownValue.textContent);
+    let currentValue = parseInt(elementShownValue.value);
     currentValue++;
     
-    elementShownValue.textContent = currentValue;
-    elementSendInfo.value = currentValue+ " Uplink(s)";
+    elementShownValue.value = currentValue;
 };
 
-function updateOutputMinusButton(elementShownValue, elementSendInfo, elementMinusOption) {   
-    let currentValue = parseInt(elementShownValue.textContent);
+function updateOutputMinusButton(elementShownValue, elementMinusOption) {   
+    let currentValue = parseInt(elementShownValue.value);
+
+    console.log(currentValue)
 
     let newValue = currentValue - 1;
 
@@ -37,8 +35,7 @@ function updateOutputMinusButton(elementShownValue, elementSendInfo, elementMinu
         elementMinusOption.disabled = true;
     };
     
-    elementShownValue.textContent = newValue;
-    elementSendInfo.value = newValue+ " Uplink(s)";
+    elementShownValue.value = newValue;
 }
 
 
@@ -50,7 +47,6 @@ function updateOutputMinusButton(elementShownValue, elementSendInfo, elementMinu
 
 const sizeShownValue = document.getElementById('sizeValue');
 const sizeOptions = document.querySelectorAll('.sizeOptions');
-const sizeSendInfo = document.getElementById('sizeSendInfo');
 
 sizeOptions.forEach(function(option) {
 
@@ -60,7 +56,7 @@ sizeOptions.forEach(function(option) {
 
         markOptionActive(option);
 
-        updateOutput(option, sizeShownValue, sizeSendInfo);
+        updateOutput(option, sizeShownValue);
     });
 });
 
@@ -69,7 +65,6 @@ sizeOptions.forEach(function(option) {
 
 const locationValue = document.getElementById('locationValue')
 const locationOptions = document.querySelectorAll('.locationOptions');
-const locationSendInfo = document.getElementById('locationSendInfo');
 
 locationOptions.forEach(function(option) {
 
@@ -79,7 +74,7 @@ locationOptions.forEach(function(option) {
 
         markOptionActive(option);
 
-        updateOutput(option, locationValue, locationSendInfo);
+        updateOutput(option, locationValue);
     });
 });
 
@@ -89,16 +84,15 @@ locationOptions.forEach(function(option) {
 const uplinksValue = document.getElementById('uplinksValue');
 const uplinksPlusOption = document.getElementById('uplinksPlusOption');
 const uplinksMinusOption = document.getElementById('uplinksMinusOption');
-const uplinksSendInfo = document.getElementById('uplinksSendInfo');
 
 uplinksPlusOption.addEventListener('click', () => {
     
-    updateOutputPlusButton(uplinksValue, uplinksSendInfo, uplinksMinusOption);
+    updateOutputPlusButton(uplinksValue, uplinksMinusOption);
 });
 
 uplinksMinusOption.addEventListener('click', () => {
 
-    updateOutputMinusButton(uplinksValue, uplinksSendInfo, uplinksMinusOption);
+    updateOutputMinusButton(uplinksValue, uplinksMinusOption);
 });
 
 
@@ -107,7 +101,6 @@ uplinksMinusOption.addEventListener('click', () => {
 
 const rspOptions = document.querySelectorAll('.rspOptions');
 const rspValue = document.getElementById('rspValue');
-const rspSendInfo = document.getElementById('rspSendInfo');
 
 rspOptions.forEach(function(option) {
 
@@ -117,7 +110,7 @@ rspOptions.forEach(function(option) {
 
         markOptionActive(option);
 
-        updateOutput(option, rspValue, rspSendInfo);
+        updateOutput(option, rspValue);
     });
 });
 
@@ -125,38 +118,32 @@ rspOptions.forEach(function(option) {
 
 //! SEND BUTTON //
 
-const sendOpenButton = document.getElementById('sendOpenButton');
-const sendButtonDialog = document.getElementById('sendButtonDialog');
-const sendCloseButton = document.getElementById('sendCloseButton');
-NEXTPAGE_URL = "x"
+const submitButton = document.getElementById('submitButton');
+NEXTPAGE_URL = "http://localhost:5500/html/index.html";
 
-if (sendOpenButton) {
-    sendOpenButton.addEventListener('click', () => {
-        sendButtonDialog.showModal();
-    })};
-
-if (sendCloseButton) {
-    sendCloseButton.addEventListener('click', () => {
-        sendButtonDialog.close();
-    })};
-
-//todo Forward Location after close button is clicked
-// sendCloseButton.onclick = () => {
-//     location.href = NEXTPAGE_URL;
-    // };
+if (submitButton) {
+    submitButton.addEventListener('click', () => {
+        location.href = NEXTPAGE_URL;
+    })
+};
 
 
-// todo remove "when window loaded logic - added it with defer when script is called"
 
-// todo add picture
+
+
 
 // todo add pricing
+
+// todo style.css for when in handy size: first options, rack pic, output
+
+// todo tests, documentation, error handling
 
 //todo get.js 
 //      -> https://netbox.intern.speedbone.work/dcim/racks/
 //      -> mysql usage testing with branch from nari
-//todo styles.css for pop up 
 
-// todo tests, documentation, error handling
+// todo extra field for special things, controll what can be writen in it?
+
+// todo spam schutz?
 
 // principles angewendet: reusability, naming conventions, dry, modularity, single responsibility principle
