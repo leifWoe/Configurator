@@ -11,7 +11,9 @@ function unmarkAllOptions(elementsOption) {
 
 
 function updateOutput(elementClicked, elementShownValue) {
-    elementShownValue.value = elementClicked.textContent;
+    let newValue = elementClicked.textContent.trim();
+    
+    elementShownValue.value = newValue;
 };
 
 
@@ -96,8 +98,24 @@ uplinksMinusOption.addEventListener('click', () => {
 });
 
 
-//! REMOTEHAND SERVICE PAKET //
+//! Cross Connects //
 
+const ccValue = document.getElementById('ccValue');
+const ccPlusOption = document.getElementById('ccPlusOption');
+const ccMinusOption = document.getElementById('ccMinusOption');
+
+ccPlusOption.addEventListener('click', () => {
+    
+    updateOutputPlusButton(ccValue, ccMinusOption);
+});
+
+ccMinusOption.addEventListener('click', () => {
+
+    updateOutputMinusButton(ccValue, ccMinusOption);
+});
+
+
+//! REMOTEHAND SERVICE PAKET //
 
 const rspOptions = document.querySelectorAll('.rspOptions');
 const rspValue = document.getElementById('rspValue');
@@ -114,6 +132,22 @@ rspOptions.forEach(function(option) {
     });
 });
 
+
+//! Electricity Feeds //
+
+const efValue = document.getElementById('efValue');
+const efPlusOption = document.getElementById('efPlusOption');
+const efMinusOption = document.getElementById('efMinusOption');
+
+efPlusOption.addEventListener('click', () => {
+    
+    updateOutputPlusButton(efValue, efMinusOption);
+});
+
+efMinusOption.addEventListener('click', () => {
+
+    updateOutputMinusButton(efValue, efMinusOption);
+});
 
 
 //! SEND BUTTON //
@@ -134,7 +168,7 @@ if (submitButton) {
 
 // todo add pricing
 
-// todo style.css for when in handy size: first options, rack pic, output
+// todo style.css for when in handy size: first options, rack  pic, output
 
 // todo tests, documentation, error handling
 
@@ -143,6 +177,8 @@ if (submitButton) {
 //      -> mysql usage testing with branch from nari
 
 // todo extra field for special things, controll what can be writen in it?
+
+// todo infos zu service packet
 
 // todo spam schutz?
 

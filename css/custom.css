@@ -3,3 +3,20 @@
     height: 35rem;
 }
 
+#sendForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#submitButton {
+    margin-top: 2rem;
+}
+
+input {
+    border: none;
+}
+
+input:focus {
+    border: none;
+    outline: none;
+}
