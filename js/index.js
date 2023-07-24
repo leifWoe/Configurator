@@ -43,7 +43,6 @@ function updateOutputMinusButton(elementShownValue, elementMinusOption) {
 
 
 
-
 //! SIZES aka GRÖßEN //
 
 
@@ -152,14 +151,14 @@ efMinusOption.addEventListener('click', () => {
 
 //! SEND BUTTON //
 
-const submitButton = document.getElementById('submitButton');
-NEXTPAGE_URL = "http://localhost:5500/html/index.html";
+// const submitButton = document.getElementById('submitButton');
+// NEXTPAGE_URL = "http://localhost:5500/html/index.html";
 
-if (submitButton) {
-    submitButton.addEventListener('click', () => {
-        location.href = NEXTPAGE_URL;
-    })
-};
+// if (submitButton) {
+//     submitButton.addEventListener('click', () => {
+//         location.href = NEXTPAGE_URL;
+//     })
+// };
 
 
 
@@ -178,8 +177,10 @@ if (submitButton) {
 
 // todo extra field for special things, controll what can be writen in it?
 
-// todo infos zu service packet
+// todo customer infos integrieren (formData.append)
 
 // todo spam schutz?
+
+// todo api_post.js: customer_id: user ID/ user login/ user email -> changing if customer needs to be created
 
 // principles angewendet: reusability, naming conventions, dry, modularity, single responsibility principle

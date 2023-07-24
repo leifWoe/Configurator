@@ -7,10 +7,17 @@ formElement.addEventListener('submit', event => {
     event.preventDefault();
 
     var formData = new FormData(formElement); 
-    //todo formData.get('sizeSendInfo'); set / append / delete -> change readability
+    //console.log(formData);
+    formData.set('sizeValue', "Größe: "+ sizeValue.value);
+    formData.set('locationValue', "Ort: "+ locationValue.value);
+    formData.set('uplinksValue', "Uplinks: "+ uplinksValue.value);
+    formData.set('ccValue', "Cross Connects: "+ ccValue.value);
+    formData.set('rspValue', "Service Pakete?: "+ rspValue.value);
+    formData.set('efValue', "Feeds: "+ efValue.value);
+    // formData.append("von Kunde "+ 'X')
     var DATA = [];
-    for (const [key, value] of formData) {
-        DATA.push({ key: value });
+    for (const value of formData) {
+        DATA.push(value);
     }
 
     var requestOptions = {
@@ -23,7 +30,7 @@ formElement.addEventListener('submit', event => {
           title: 'Configurator Inquiry',
           group_id: 1,
           // priority_id: 3,
-          customer: '', // todo customer_id: user ID/ user login/ user email -> changing if customer needs to be created
+          customer: '',
           article: {
             body: DATA,
             type: 'note',
@@ -31,9 +38,10 @@ formElement.addEventListener('submit', event => {
         }),
       };
       
-      console.log(requestOptions);
-      console.log(DATA);
-      //fetch(REQUEST_URL, requestOptions)
+
+      //console.log(requestOptions);
+      //console.log(DATA);
+      fetch(REQUEST_URL, requestOptions)
         // .then((response) => response.json())
         // .then((data) => console.log(data))
         // .catch((error) => console.log('Error:', error))
