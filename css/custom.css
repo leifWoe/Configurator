@@ -1,15 +1,26 @@
+.height-750 {
+    height: 750px;
+}
+
+.max-height-750-scrollbar {
+    max-height: 750px;
+    overflow-y: scroll;
+}
+
+
 #rack_photo {
+    padding-top: 20%;
     width: 12rem;
     height: 35rem;
 }
 
-#sendForm {
-    display: flex;
-    flex-direction: column;
+
+.output-field {
+    padding-top: 20%;
 }
 
-#submitButton {
-    margin-top: 2rem;
+h4 {
+    margin-bottom: 1%;
 }
 
 input {
@@ -19,4 +30,18 @@ input {
 input:focus {
     border: none;
     outline: none;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+
+#sendForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#submitButton {
+    margin-top: 1rem;
 }

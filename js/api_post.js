@@ -40,8 +40,8 @@ formElement.addEventListener('submit', event => {
       
 
       //console.log(requestOptions);
-      //console.log(DATA);
-      fetch(REQUEST_URL, requestOptions)
+      console.log(DATA);
+      //fetch(REQUEST_URL, requestOptions)
         // .then((response) => response.json())
         // .then((data) => console.log(data))
         // .catch((error) => console.log('Error:', error))

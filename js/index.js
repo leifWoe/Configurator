@@ -17,7 +17,7 @@ function updateOutput(elementClicked, elementShownValue) {
 };
 
 
-function updateOutputPlusButton(elementShownValue, elementMinusOption) {
+function updateOutputPlusButton(elementMinusOption, elementShownValue) {
     elementMinusOption.disabled = false;
 
     let currentValue = parseInt(elementShownValue.value);
@@ -26,10 +26,8 @@ function updateOutputPlusButton(elementShownValue, elementMinusOption) {
     elementShownValue.value = currentValue;
 };
 
-function updateOutputMinusButton(elementShownValue, elementMinusOption) {   
+function updateOutputMinusButton(elementMinusOption, elementShownValue) {   
     let currentValue = parseInt(elementShownValue.value);
-
-    console.log(currentValue)
 
     let newValue = currentValue - 1;
 
@@ -40,14 +38,36 @@ function updateOutputMinusButton(elementShownValue, elementMinusOption) {
     elementShownValue.value = newValue;
 }
 
+function updateTotalCost() {
+    let monthlyPrices = document.querySelector('.monthlyPrice')
+};
+
 
 
 
 //! SIZES aka GRÖßEN //
 
-
 const sizeShownValue = document.getElementById('sizeValue');
+const sizeCurrentPrice = document.getElementById('sizePrice');
 const sizeOptions = document.querySelectorAll('.sizeOptions');
+const sizePrices = [650,420,260]
+
+function updateSizePrices(option, sizeCurrentPrice, sizePrices) {
+
+    switch (option.textContent.trim()) {
+        case '1/1' :
+            sizeCurrentPrice.textContent = sizePrices[0];
+            break;
+
+        case '1/2' :
+            sizeCurrentPrice.textContent = sizePrices[1];
+            break;
+
+        case '1/4' :
+            sizeCurrentPrice.textContent = sizePrices[2];
+            break;
+    };
+};
 
 sizeOptions.forEach(function(option) {
 
@@ -58,6 +78,9 @@ sizeOptions.forEach(function(option) {
         markOptionActive(option);
 
         updateOutput(option, sizeShownValue);
+
+        updateSizePrices(option, sizeCurrentPrice, sizePrices);
+
     });
 });
 
@@ -88,12 +111,12 @@ const uplinksMinusOption = document.getElementById('uplinksMinusOption');
 
 uplinksPlusOption.addEventListener('click', () => {
     
-    updateOutputPlusButton(uplinksValue, uplinksMinusOption);
+    updateOutputPlusButton(uplinksMinusOption, uplinksValue);
 });
 
 uplinksMinusOption.addEventListener('click', () => {
 
-    updateOutputMinusButton(uplinksValue, uplinksMinusOption);
+    updateOutputMinusButton(uplinksMinusOption, uplinksValue, );
 });
 
 
@@ -105,12 +128,12 @@ const ccMinusOption = document.getElementById('ccMinusOption');
 
 ccPlusOption.addEventListener('click', () => {
     
-    updateOutputPlusButton(ccValue, ccMinusOption);
+    updateOutputPlusButton(ccMinusOption, ccValue, );
 });
 
 ccMinusOption.addEventListener('click', () => {
 
-    updateOutputMinusButton(ccValue, ccMinusOption);
+    updateOutputMinusButton(ccMinusOption, ccValue, );
 });
 
 
@@ -140,25 +163,25 @@ const efMinusOption = document.getElementById('efMinusOption');
 
 efPlusOption.addEventListener('click', () => {
     
-    updateOutputPlusButton(efValue, efMinusOption);
+    updateOutputPlusButton(efMinusOption, efValue);
 });
 
 efMinusOption.addEventListener('click', () => {
 
-    updateOutputMinusButton(efValue, efMinusOption);
+    updateOutputMinusButton(efMinusOption, efValue);
 });
 
 
 //! SEND BUTTON //
 
-// const submitButton = document.getElementById('submitButton');
-// NEXTPAGE_URL = "http://localhost:5500/html/index.html";
+const submitButton = document.getElementById('submitButton');
+NEXTPAGE_URL = "http://localhost:5500/html/index.html";
 
-// if (submitButton) {
-//     submitButton.addEventListener('click', () => {
-//         location.href = NEXTPAGE_URL;
-//     })
-// };
+if (submitButton) {
+    submitButton.addEventListener('click', () => {
+        location.href = NEXTPAGE_URL;
+    })
+};
 
 
 
@@ -166,21 +189,23 @@ efMinusOption.addEventListener('click', () => {
 
 
 // todo add pricing
+// todo query selector in array to (switch)match array position with price array 
 
 // todo style.css for when in handy size: first options, rack  pic, output
 
-// todo tests, documentation, error handling
-
-//todo get.js 
-//      -> https://netbox.intern.speedbone.work/dcim/racks/
-//      -> mysql usage testing with branch from nari
+// todo tests, documentation
+//      principles angewendet: reusability, naming conventions, dry, modularity, single responsibility principle
+// todo spam schutz?
+// todo error handling
 
 // todo extra field for special things, controll what can be writen in it?
 
+// todo get.js 
+//      -> https://netbox.intern.speedbone.work/dcim/racks/
+//      -> mysql usage testing with branch from nari
+
+// todo design patterns for how scripts work together
+
 // todo customer infos integrieren (formData.append)
-
-// todo spam schutz?
-
 // todo api_post.js: customer_id: user ID/ user login/ user email -> changing if customer needs to be created
 
-// principles angewendet: reusability, naming conventions, dry, modularity, single responsibility principle
