@@ -26,12 +26,12 @@
     <div class="container">
       <div class="row">
 
-        <!--! MAINBAR OUTPUT -->
+        <!--! MAIN OUTPUT -->
         <div class="col-md-8">
-          <div class="content-details b-solid">
+          <div class="content-details b-solid height-750">
             <div class="row pb-5">
               <div class="col-md-12 col-lg-6">
-                <h1>Output</h1>
+                <h1 class="border-bottom pb-2">Output</h1>
                 <div class="popup-gallery">
                   <img id="rack_photo" src="/assets/rack_photo.jpg" alt="Rack">
                 </div>
@@ -40,32 +40,40 @@
               <div class="col-md-12 col-lg-6">
                 <div class="wrappper">
                   <div class="row">
-                    <div class="outputContainer column">
-                      <div class="output">
-                        <form method="get" action="" id="sendForm" name="sendForm">
-      
-                          <h4>Size</h4>
-                          <input type="text" name="sizeValue" id="sizeValue" value="1/1" class="no-border" readonly>
-                          
-                          <h4>Location</h4>
-                          <input type="text" name="locationValue" id="locationValue" value="Insel in Cage" class="no-border" readonly>
-                          
-                          <h4>Uplinks</h4>
-                          <input type="text" name="uplinksValue" id="uplinksValue" value="1" class="no-border" readonly>
-                          
-                          <h4>Cross Connects</h4>
-                          <input type="text" name="ccValue" id="ccValue" value="1" class="no-border" readonly>
-                          
-                          <h4>Remote Service Packages</h4>
-                          <input type="text" name="rspValue" id="rspValue" value="Yes" class="no-border" readonly>
-                          
-                          <h4>Electricity Feeds</h4>
-                          <input type="text" name="efValue" id="efValue" value="1" class="no-border" readonly>
+                    <div class="output-field">
+                      <form method="get" action="" id="sendForm" name="sendForm">
+    
+                        <h4>Size</h4>
+                        <input type="text" name="sizeValue" id="sizeValue" value="1/1" class="pb-3 " readonly>
+                        
+                        <h4>Location</h4>
+                        <input type="text" name="locationValue" id="locationValue" value="Insel in Cage" class="pb-3 " readonly>
+                        
+                        <h4>Uplinks</h4>
+                        <input type="text" name="uplinksValue" id="uplinksValue" value="1" class="pb-3 " readonly>
+                        
+                        <h4>Cross Connects</h4>
+                        <input type="text" name="ccValue" id="ccValue" value="1" class="pb-3 " readonly>
+                        
+                        <h4>Remote Service Packages</h4>
+                        <input type="text" name="rspValue" id="rspValue" value="Yes" class="pb-3 " readonly>
+                        
+                        <h4>extra Electricity Feeds</h4>
+                        <input type="text" name="efValue" id="efValue" value="1" class="pb-3 " readonly>
+                        
+                        <div class="totalCostContainer mt-3 pt-3 border-top">
+                          <span>Total monthly: </span>
+                          <input type="text" name="totalMonthlyCost" id="totalMonthlyCost" value="812" class="text-align-right" readonly>
+                          <span>€</span>
 
-                          <input class="btn btn-block btn-default" type="submit" name="submit" id="submitButton" value="submit">
+                          <span>Total Setup Cost: </span>
+                          <input type="text" name="totalSetupCost" id="totalSetupCost" value="812" class="text-align-right" readonly>
+                          <span>€</span>
+                        </div>
 
-                        </form>
-                      </div>
+                        <input class="btn btn-block btn-default" type="submit" name="submit" id="submitButton" value="Request">
+
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -77,12 +85,11 @@
 
         <!--! SIDEBAR OPTIONS -->
         <div class="col-md-4">
-          <aside class="sidebar b-solid">
-            <div class="posts">
+          <aside class="sidebar b-solid max-height-750-scrollbar">
+            <div class="posts mt-6 pt-2">
               <div class="tabs">
                 <div class="archives">
                   <h2>Options</h2> 
-                  <div class="line active"></div>
                   <div class="carting">
                     <div class="col-sm-12 p-0">
                       <table class="table m-top">
@@ -102,7 +109,7 @@
                                     1/4
                                 </button>
                               </div>
-                              <span id="sizePrice">650</span>
+                              <span id="sizeMonthlyPrice" class="monthlyPrice">650</span>
                               <span>€</span>
                               <p>monthly and for the setup</p>
                             </td>
@@ -118,7 +125,7 @@
                                     open Space
                                 </button>
                               </div>
-                              <span id="locationPrice">50</span>
+                              <span id="locationMonthlyPrice" class="monthlyPrice">50</span>
                               <span>€</span>
                               <p>monthly and for the setup</p>
                             </td>
@@ -130,7 +137,7 @@
                                 <button id="uplinksMinusOption" type="button">-</button>
                                 <button id="uplinksPlusOption" type="button">+</button>
                               </div>
-                              <span id="uplinksPrice">12</span>
+                              <span id="uplinksMonthlyPrice" class="monthlyPrice">12</span>
                               <span>€</span>
                               <p>monthly and for the setup</p>
                             </td>
@@ -142,7 +149,7 @@
                                 <button id="ccMinusOption" type="button">-</button>
                                 <button id="ccPlusOption" type="button">+</button>
                               </div>
-                              <span id="ccPrice">50</span>
+                              <span id="ccMonthlyPrice" class="monthlyPrice">50</span>
                               <span>€</span>
                               <p>monthly and 200€ for the setup</p>
                             </td>
@@ -150,13 +157,14 @@
                           <tr>
                             <td class="title">
                               <h4>Service Packages</h4>
-                              <p>Remote service and Backup</p>
-                              <p>Details for possible individual solutions can be discussed later</p>
+                              <p>Individual Remote Services  and Backup Solutions</p>
                               <div class="rsp">
                                 <button id="rspNoOption" class="rspOptions" type="button">Yes</button>
                                 <button id="rspYesOption" class="rspOptions" type="button">No</button>
                               </div>
-                              <span>50 - 250 €</span>
+                              <span id="rspMonthlyPrice" class="monthlyPrice">50</span>
+                              <span>€</span>
+                              <p>monthly 50 - 250 €</p>
                             </td>
                           </tr>
                           <tr>
@@ -167,15 +175,10 @@
                                 <button id="efMinusOption" type="button">-</button>
                                 <button id="efPlusOption" type="button">+</button>
                               </div>
-                              <span id="efPrice">40</span>
+                              <span id="efMonthlyPrice" class="monthlyPrice">40</span>
                               <span>€</span>
                               <p>the first is included free of charge, each new one</p>
                               <p>40 € monthly and 200€ for the setup</p>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="section-bar" colspan="3">
-                              <span class="float-right check">Total: $</span>
                             </td>
                           </tr>
                         </tbody>
