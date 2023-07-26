@@ -86,9 +86,10 @@ sizeOptions.forEach(function(option) {
 
 //! LOCATION aka ORT //
 
-const locationValue = document.getElementById('locationValue')
+const locationValue = document.getElementById('locationValue');
+const locationOptionMonthlyPrice = document.getElementById('locationOptionMonthlyPrice');
 const locationOptions = document.querySelectorAll('.locationOptions');
-
+const locationPrices = [50,0];
 
 locationOptions.forEach(function(option) {
 
@@ -100,7 +101,7 @@ locationOptions.forEach(function(option) {
 
         updateOutput(option, locationValue);
 
-        updateOptionPrice(option, elementOptions, optionPrices, elementOptionMontlyPrice)
+        updateOptionPrice(option, locationOptions, locationPrices, locationOptionMonthlyPrice)
     });
 });
 
