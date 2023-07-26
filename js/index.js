@@ -44,15 +44,15 @@ function updateTotalCost(elementOptions) {
 };
 
 function updateOptionChoicePrice(option, elementOptions, optionPrices, elementOptionMontlyPrice) {
-    var elementOptionsTextContent = [];
+    let elementOptionsTextContent = [];
 
-    for (var i = 0; i < elementOptions.length; i++) {
+    for (let i = 0; i < elementOptions.length; i++) {
         elementOptionsTextContent.push(elementOptions[i].textContent.trim());
     };
 
     const elementPricesMap = new Map();
     
-    for (var i = 0; i < elementOptionsTextContent.length; i++) {
+    for (let i = 0; i < elementOptionsTextContent.length; i++) {
         elementPricesMap.set(elementOptionsTextContent[i], optionPrices[i]);
     };
 
@@ -73,7 +73,7 @@ function updateOptionIncrementalPrice(elementShownValue, optionPrice, elementOpt
 const sizeShownValue = document.getElementById('sizeValue');
 const sizeOptionMonthlyPrice = document.getElementById('sizeOptionMonthlyPrice');
 const sizeOptions = document.querySelectorAll('.sizeOptions');
-const sizePrices = [650,420,260]
+const sizeMonthlyPrices = [650,420,260]
 
 sizeOptions.forEach(function(option) {
     option.addEventListener('click', function() {
@@ -83,7 +83,7 @@ sizeOptions.forEach(function(option) {
 
         updateOutput(option, sizeShownValue);
 
-        updateOptionChoicePrice(option, sizeOptions, sizePrices, sizeOptionMonthlyPrice);
+        updateOptionChoicePrice(option, sizeOptions, sizeMonthlyPrices, sizeOptionMonthlyPrice);
     });
 });
 
@@ -93,7 +93,7 @@ sizeOptions.forEach(function(option) {
 const locationValue = document.getElementById('locationValue');
 const locationOptionMonthlyPrice = document.getElementById('locationOptionMonthlyPrice');
 const locationOptions = document.querySelectorAll('.locationOptions');
-const locationPrices = [50,0];
+const locationMonthlyPrices = [50,0];
 
 locationOptions.forEach(function(option) {
     option.addEventListener('click', function() {
@@ -103,7 +103,7 @@ locationOptions.forEach(function(option) {
 
         updateOutput(option, locationValue);
 
-        updateOptionChoicePrice(option, locationOptions, locationPrices, locationOptionMonthlyPrice)
+        updateOptionChoicePrice(option, locationOptions, locationMonthlyPrices, locationOptionMonthlyPrice)
     });
 });
 
@@ -111,38 +111,42 @@ locationOptions.forEach(function(option) {
 //! UPLINKS //
 
 const uplinksValue = document.getElementById('uplinksValue');
+const uplinksOptionMonthlyPrice = document.getElementById('uplinksOptionMonthlyPrice');
 const uplinksPlusOption = document.getElementById('uplinksPlusOption');
 const uplinksMinusOption = document.getElementById('uplinksMinusOption');
-const uplinksOptionMonthlyPrice = document.getElementById('uplinksOptionMonthlyPrice');
-const uplinksPrice = 12;
+const uplinksMonthlyPrice = 12;
 
 uplinksPlusOption.addEventListener('click', () => {
     updateOutputPlusButton(uplinksMinusOption, uplinksValue);
 
-    updateOptionIncrementalPrice(uplinksValue, uplinksPrice, uplinksOptionMonthlyPrice);
+    updateOptionIncrementalPrice(uplinksValue, uplinksMonthlyPrice, uplinksOptionMonthlyPrice);
 });
 
 uplinksMinusOption.addEventListener('click', () => {
     updateOutputMinusButton(uplinksMinusOption, uplinksValue, );
 
-    updateOptionIncrementalPrice(uplinksValue, uplinksPrice, uplinksOptionMonthlyPrice);
+    updateOptionIncrementalPrice(uplinksValue, uplinksMonthlyPrice, uplinksOptionMonthlyPrice);
 });
 
 
 //! Cross Connects //
 
 const ccValue = document.getElementById('ccValue');
+const ccOptionMonthlyPrice = document.getElementById('ccOptionMonthlyPrice');
 const ccPlusOption = document.getElementById('ccPlusOption');
 const ccMinusOption = document.getElementById('ccMinusOption');
+const ccMonthlyPrice = 50;
 
 ccPlusOption.addEventListener('click', () => {
-    
-    updateOutputPlusButton(ccMinusOption, ccValue, );
+    updateOutputPlusButton(ccMinusOption, ccValue);
+
+    updateOptionIncrementalPrice(ccValue, ccMonthlyPrice, ccOptionMonthlyPrice);
 });
 
 ccMinusOption.addEventListener('click', () => {
+    updateOutputMinusButton(ccMinusOption, ccValue);
 
-    updateOutputMinusButton(ccMinusOption, ccValue, );
+    updateOptionIncrementalPrice(ccValue, ccMonthlyPrice, ccOptionMonthlyPrice);
 });
 
 
@@ -151,7 +155,7 @@ ccMinusOption.addEventListener('click', () => {
 const rspValue = document.getElementById('rspValue');
 const rspOptionMonthlyPrice = document.getElementById('rspOptionMonthlyPrice');
 const rspOptions = document.querySelectorAll('.rspOptions');
-const rspPrices = [50,0];
+const rspMonthlyPrices = [50,0];
 
 rspOptions.forEach(function(option) {
 
@@ -163,7 +167,7 @@ rspOptions.forEach(function(option) {
 
         updateOutput(option, rspValue);
 
-        updateOptionChoicePrice(option, rspOptions, rspPrices, rspOptionMonthlyPrice)
+        updateOptionChoicePrice(option, rspOptions, rspMonthlyPrices, rspOptionMonthlyPrice)
     });
 });
 
@@ -171,17 +175,21 @@ rspOptions.forEach(function(option) {
 //! Electricity Feeds //
 
 const efValue = document.getElementById('efValue');
+const efOptionMonthlyPrice = document.getElementById('efOptionMonthlyPrice');
 const efPlusOption = document.getElementById('efPlusOption');
 const efMinusOption = document.getElementById('efMinusOption');
+const efMonthlyPrice = 40;
 
 efPlusOption.addEventListener('click', () => {
-    
     updateOutputPlusButton(efMinusOption, efValue);
+
+    updateOptionIncrementalPrice(efValue, efMonthlyPrice, efOptionMonthlyPrice);
 });
 
 efMinusOption.addEventListener('click', () => {
-
     updateOutputMinusButton(efMinusOption, efValue);
+
+    updateOptionIncrementalPrice(efValue, efMonthlyPrice, efOptionMonthlyPrice);
 });
 
 
@@ -210,7 +218,8 @@ if (submitButton) {
 // todo tests, documentation
 //      principles angewendet: reusability, naming conventions, dry, modularity, single responsibility principle
 // todo spam schutz?
-// todo error handling
+// todo error handling -> try {} catch() {} 
+// const x = condition ? 1 : 2;
 
 // todo extra field for special things, controll what can be writen in it?
 
