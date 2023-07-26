@@ -4,8 +4,8 @@ function markOptionActive(elementClicked) {
 
 
 function unmarkAllOptions(elementsOption) {
-    elementsOption.forEach(function(elementClicked) {
-        elementClicked.classList.remove('active')
+    elementsOption.forEach(function(e) {
+        e.classList.remove('active')
     });
 };
 
@@ -38,8 +38,24 @@ function updateOutputMinusButton(elementMinusOption, elementShownValue) {
     elementShownValue.value = newValue;
 }
 
-function updateTotalCost() {
-    let monthlyPrices = document.querySelector('.monthlyPrice')
+function updateTotalCost(elementOptions) {
+    
+};
+
+function updateOptionPrice(option, elementOptions, optionPrices, elementOptionMontlyPrice) {
+    var elementOptionsTextContent = [];
+
+    for (var i = 0; i < elementOptions.length; i++) {
+        elementOptionsTextContent.push(elementOptions[i].textContent.trim());
+    };
+
+    const elementPricesMap = new Map();
+    for (var i = 0; i < elementOptionsTextContent.length; i++) {
+        elementPricesMap.set(elementOptionsTextContent[i], optionPrices[i]);
+    };
+
+
+    elementOptionMontlyPrice.textContent = elementPricesMap.get(option.textContent.trim());
 };
 
 
@@ -48,26 +64,9 @@ function updateTotalCost() {
 //! SIZES aka GRÖßEN //
 
 const sizeShownValue = document.getElementById('sizeValue');
-const sizeCurrentPrice = document.getElementById('sizePrice');
+const sizeOptionMonthlyPrice = document.getElementById('sizeOptionMonthlyPrice');
 const sizeOptions = document.querySelectorAll('.sizeOptions');
 const sizePrices = [650,420,260]
-
-function updateSizePrices(option, sizeCurrentPrice, sizePrices) {
-
-    switch (option.textContent.trim()) {
-        case '1/1' :
-            sizeCurrentPrice.textContent = sizePrices[0];
-            break;
-
-        case '1/2' :
-            sizeCurrentPrice.textContent = sizePrices[1];
-            break;
-
-        case '1/4' :
-            sizeCurrentPrice.textContent = sizePrices[2];
-            break;
-    };
-};
 
 sizeOptions.forEach(function(option) {
 
@@ -79,7 +78,7 @@ sizeOptions.forEach(function(option) {
 
         updateOutput(option, sizeShownValue);
 
-        updateSizePrices(option, sizeCurrentPrice, sizePrices);
+        updateOptionPrice(option, sizeOptions, sizePrices, sizeOptionMonthlyPrice);
 
     });
 });
@@ -90,6 +89,7 @@ sizeOptions.forEach(function(option) {
 const locationValue = document.getElementById('locationValue')
 const locationOptions = document.querySelectorAll('.locationOptions');
 
+
 locationOptions.forEach(function(option) {
 
     option.addEventListener('click', function() {
@@ -99,6 +99,8 @@ locationOptions.forEach(function(option) {
         markOptionActive(option);
 
         updateOutput(option, locationValue);
+
+        updateOptionPrice(option, elementOptions, optionPrices, elementOptionMontlyPrice)
     });
 });
 
@@ -190,6 +192,7 @@ if (submitButton) {
 
 // todo add pricing
 // todo query selector in array to (switch)match array position with price array 
+// quelle zip function: https://stackoverflow.com/questions/32937181/javascript-es6-map-multiple-arrays
 
 // todo style.css for when in handy size: first options, rack  pic, output
 
