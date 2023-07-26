@@ -38,17 +38,39 @@ function updateOutputMinusButton(elementMinusOption, elementShownValue) {
     elementShownValue.value = newValue;
 }
 
-function updateTotalCost(elementOptions) {
-    // get all option monthly prices , add them
-    // get true or false values for setup costs , add them
+function getQuerySelektorTextContents(queryNodes) {
+    let elementTextContents = [];
+
+    for (let i = 0; i < queryNodes.length; i++) {
+        elementTextContents.push(queryNodes[i].textContent.trim());
+    };
+
+    // todo var elementTextContentsValues = elementTextContents.map(str => Number(str));;
+    console.log(elementTextContentsValues);
+    return elementTextContentsValues;
+};
+
+function sumArrayValues(arr) {
+    arr = [1,2,3];
+    console.log(arr);
+    let sum = arr.reduce((a, b) => a + b, 0);
+
+    return sum;
+};
+  
+
+function updateTotalMonthlyCost() {
+    const monthlyCostsNodes = document.querySelectorAll('.monthlyPrice');
+    const totalMonthlyCost = document.getElementById('totalMonthlyCost');
+   
+    montlyCosts = getQuerySelektorTextContents(monthlyCostsNodes);
+    
+    console.log(sumArrayValues(montlyCosts));
+    totalMonthlyCost.value = 3;
 };
 
 function updateOptionChoicePrice(option, elementOptions, optionPrices, elementOptionMontlyPrice) {
-    let elementOptionsTextContent = [];
-
-    for (let i = 0; i < elementOptions.length; i++) {
-        elementOptionsTextContent.push(elementOptions[i].textContent.trim());
-    };
+    let elementOptionsTextContent = getQuerySelektorTextContents(elementOptions);
 
     const elementPricesMap = new Map();
     
@@ -84,6 +106,8 @@ sizeOptions.forEach(function(option) {
         updateOutput(option, sizeShownValue);
 
         updateOptionChoicePrice(option, sizeOptions, sizeMonthlyPrices, sizeOptionMonthlyPrice);
+    
+        updateTotalMonthlyCost();
     });
 });
 
@@ -216,6 +240,7 @@ if (submitButton) {
 // todo style.css for when in handy size: first options, rack  pic, output
 
 // todo tests, documentation
+//      delete all unnassary "element" or "options" or alike slang 
 //      principles angewendet: reusability, naming conventions, dry, modularity, single responsibility principle
 // todo spam schutz?
 // todo error handling -> try {} catch() {} 
