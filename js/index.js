@@ -39,10 +39,11 @@ function updateOutputMinusButton(elementMinusOption, elementShownValue) {
 }
 
 function updateTotalCost(elementOptions) {
-    
+    // get all option monthly prices , add them
+    // get true or false values for setup costs , add them
 };
 
-function updateOptionPrice(option, elementOptions, optionPrices, elementOptionMontlyPrice) {
+function updateOptionChoicePrice(option, elementOptions, optionPrices, elementOptionMontlyPrice) {
     var elementOptionsTextContent = [];
 
     for (var i = 0; i < elementOptions.length; i++) {
@@ -50,13 +51,19 @@ function updateOptionPrice(option, elementOptions, optionPrices, elementOptionMo
     };
 
     const elementPricesMap = new Map();
+    
     for (var i = 0; i < elementOptionsTextContent.length; i++) {
         elementPricesMap.set(elementOptionsTextContent[i], optionPrices[i]);
     };
 
-
     elementOptionMontlyPrice.textContent = elementPricesMap.get(option.textContent.trim());
 };
+
+
+function updateOptionIncrementalPrice(elementShownValue, optionPrice, elementOptionMontlyPrice) {
+    elementOptionMontlyPrice.textContent = elementShownValue.value*optionPrice;
+};
+
 
 
 
@@ -69,17 +76,14 @@ const sizeOptions = document.querySelectorAll('.sizeOptions');
 const sizePrices = [650,420,260]
 
 sizeOptions.forEach(function(option) {
-
     option.addEventListener('click', function() {
-        
         unmarkAllOptions(sizeOptions);
 
         markOptionActive(option);
 
         updateOutput(option, sizeShownValue);
 
-        updateOptionPrice(option, sizeOptions, sizePrices, sizeOptionMonthlyPrice);
-
+        updateOptionChoicePrice(option, sizeOptions, sizePrices, sizeOptionMonthlyPrice);
     });
 });
 
@@ -92,16 +96,14 @@ const locationOptions = document.querySelectorAll('.locationOptions');
 const locationPrices = [50,0];
 
 locationOptions.forEach(function(option) {
-
     option.addEventListener('click', function() {
-        
         unmarkAllOptions(locationOptions);
 
         markOptionActive(option);
 
         updateOutput(option, locationValue);
 
-        updateOptionPrice(option, locationOptions, locationPrices, locationOptionMonthlyPrice)
+        updateOptionChoicePrice(option, locationOptions, locationPrices, locationOptionMonthlyPrice)
     });
 });
 
@@ -111,15 +113,19 @@ locationOptions.forEach(function(option) {
 const uplinksValue = document.getElementById('uplinksValue');
 const uplinksPlusOption = document.getElementById('uplinksPlusOption');
 const uplinksMinusOption = document.getElementById('uplinksMinusOption');
+const uplinksOptionMonthlyPrice = document.getElementById('uplinksOptionMonthlyPrice');
+const uplinksPrice = 12;
 
 uplinksPlusOption.addEventListener('click', () => {
-    
     updateOutputPlusButton(uplinksMinusOption, uplinksValue);
+
+    updateOptionIncrementalPrice(uplinksValue, uplinksPrice, uplinksOptionMonthlyPrice);
 });
 
 uplinksMinusOption.addEventListener('click', () => {
-
     updateOutputMinusButton(uplinksMinusOption, uplinksValue, );
+
+    updateOptionIncrementalPrice(uplinksValue, uplinksPrice, uplinksOptionMonthlyPrice);
 });
 
 
@@ -157,7 +163,7 @@ rspOptions.forEach(function(option) {
 
         updateOutput(option, rspValue);
 
-        updateOptionPrice(option, rspOptions, rspPrices, rspOptionMonthlyPrice)
+        updateOptionChoicePrice(option, rspOptions, rspPrices, rspOptionMonthlyPrice)
     });
 });
 
