@@ -142,8 +142,10 @@ ccMinusOption.addEventListener('click', () => {
 
 //! REMOTEHAND SERVICE PAKET //
 
-const rspOptions = document.querySelectorAll('.rspOptions');
 const rspValue = document.getElementById('rspValue');
+const rspOptionMonthlyPrice = document.getElementById('rspOptionMonthlyPrice');
+const rspOptions = document.querySelectorAll('.rspOptions');
+const rspPrices = [50,0];
 
 rspOptions.forEach(function(option) {
 
@@ -154,6 +156,8 @@ rspOptions.forEach(function(option) {
         markOptionActive(option);
 
         updateOutput(option, rspValue);
+
+        updateOptionPrice(option, rspOptions, rspPrices, rspOptionMonthlyPrice)
     });
 });
 
