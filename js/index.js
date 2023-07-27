@@ -45,14 +45,16 @@ function getQuerySelektorTextContents(queryNodes) {
         elementTextContents.push(queryNodes[i].textContent.trim());
     };
 
-    // todo var elementTextContentsValues = elementTextContents.map(str => Number(str));;
-    console.log(elementTextContentsValues);
-    return elementTextContentsValues;
+    return elementTextContents;
+};
+
+function gettextContentValues(textContent) {
+    var textContentsValues = textContent.map(str => Number(str));
+    
+    return textContentsValues;
 };
 
 function sumArrayValues(arr) {
-    arr = [1,2,3];
-    console.log(arr);
     let sum = arr.reduce((a, b) => a + b, 0);
 
     return sum;
@@ -63,10 +65,11 @@ function updateTotalMonthlyCost() {
     const monthlyCostsNodes = document.querySelectorAll('.monthlyPrice');
     const totalMonthlyCost = document.getElementById('totalMonthlyCost');
    
-    montlyCosts = getQuerySelektorTextContents(monthlyCostsNodes);
+    const monthlyCostsTextContent = getQuerySelektorTextContents(monthlyCostsNodes);
     
-    console.log(sumArrayValues(montlyCosts));
-    totalMonthlyCost.value = 3;
+    const monthlyCostsValues = gettextContentValues(monthlyCostsTextContent);
+
+    totalMonthlyCost.value = sumArrayValues(monthlyCostsValues);
 };
 
 function updateOptionChoicePrice(option, elementOptions, optionPrices, elementOptionMontlyPrice) {
@@ -234,6 +237,7 @@ if (submitButton) {
 
 
 // todo add pricing
+// todo query selector for dry principle for same updating behavior
 // todo query selector in array to (switch)match array position with price array 
 // quelle zip function: https://stackoverflow.com/questions/32937181/javascript-es6-map-multiple-arrays
 
