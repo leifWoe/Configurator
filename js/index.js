@@ -62,14 +62,28 @@ function sumArrayValues(arr) {
   
 
 function updateTotalMonthlyCost() {
-    const monthlyCostsNodes = document.querySelectorAll('.monthlyPrice');
+    const monthlyPriceNodes = document.querySelectorAll('.monthlyPrice');
     const totalMonthlyCost = document.getElementById('totalMonthlyCost');
    
-    const monthlyCostsTextContent = getQuerySelektorTextContents(monthlyCostsNodes);
+    const monthlyCostsTextContent = getQuerySelektorTextContents(monthlyPriceNodes);
     
     const monthlyCostsValues = gettextContentValues(monthlyCostsTextContent);
+    
 
     totalMonthlyCost.value = sumArrayValues(monthlyCostsValues);
+};
+
+function updateTotalSetupCost() {
+    const setupPriceNodes = document.querySelectorAll('.monthlyPrice');
+    const totalSetupCost = document.getElementById('totalSetupCost');
+
+    const setupCostsTextContent = getQuerySelektorTextContents(setupPriceNodes);
+    
+    const setupCostsValues = gettextContentValues(setupCostsTextContent);
+    setupCostsValues[3] = (setupCostsValues[3]/50) * 200; // increase total setup cost by single setup cost instead of monthly cost
+    setupCostsValues[5] = (setupCostsValues[5]/40) * 200;
+
+    totalSetupCost.value = sumArrayValues(setupCostsValues);
 };
 
 function updateOptionChoicePrice(option, elementOptions, optionPrices, elementOptionMontlyPrice) {
@@ -111,6 +125,8 @@ sizeOptions.forEach(function(option) {
         updateOptionChoicePrice(option, sizeOptions, sizeMonthlyPrices, sizeOptionMonthlyPrice);
     
         updateTotalMonthlyCost();
+
+        updateTotalSetupCost();
     });
 });
 
@@ -131,6 +147,10 @@ locationOptions.forEach(function(option) {
         updateOutput(option, locationValue);
 
         updateOptionChoicePrice(option, locationOptions, locationMonthlyPrices, locationOptionMonthlyPrice)
+    
+        updateTotalMonthlyCost();
+
+        updateTotalSetupCost();
     });
 });
 
@@ -147,12 +167,20 @@ uplinksPlusOption.addEventListener('click', () => {
     updateOutputPlusButton(uplinksMinusOption, uplinksValue);
 
     updateOptionIncrementalPrice(uplinksValue, uplinksMonthlyPrice, uplinksOptionMonthlyPrice);
+
+    updateTotalMonthlyCost();
+
+    updateTotalSetupCost();
 });
 
 uplinksMinusOption.addEventListener('click', () => {
     updateOutputMinusButton(uplinksMinusOption, uplinksValue, );
 
     updateOptionIncrementalPrice(uplinksValue, uplinksMonthlyPrice, uplinksOptionMonthlyPrice);
+
+    updateTotalMonthlyCost();
+
+    updateTotalSetupCost();
 });
 
 
@@ -168,12 +196,20 @@ ccPlusOption.addEventListener('click', () => {
     updateOutputPlusButton(ccMinusOption, ccValue);
 
     updateOptionIncrementalPrice(ccValue, ccMonthlyPrice, ccOptionMonthlyPrice);
+
+    updateTotalMonthlyCost();
+
+    updateTotalSetupCost();
 });
 
 ccMinusOption.addEventListener('click', () => {
     updateOutputMinusButton(ccMinusOption, ccValue);
 
     updateOptionIncrementalPrice(ccValue, ccMonthlyPrice, ccOptionMonthlyPrice);
+
+    updateTotalMonthlyCost();
+
+    updateTotalSetupCost();
 });
 
 
@@ -194,7 +230,11 @@ rspOptions.forEach(function(option) {
 
         updateOutput(option, rspValue);
 
-        updateOptionChoicePrice(option, rspOptions, rspMonthlyPrices, rspOptionMonthlyPrice)
+        updateOptionChoicePrice(option, rspOptions, rspMonthlyPrices, rspOptionMonthlyPrice);
+
+        updateTotalMonthlyCost();
+
+        updateTotalSetupCost();
     });
 });
 
@@ -211,13 +251,34 @@ efPlusOption.addEventListener('click', () => {
     updateOutputPlusButton(efMinusOption, efValue);
 
     updateOptionIncrementalPrice(efValue, efMonthlyPrice, efOptionMonthlyPrice);
+    
+    updateTotalMonthlyCost();
+
+    updateTotalSetupCost();
 });
 
 efMinusOption.addEventListener('click', () => {
     updateOutputMinusButton(efMinusOption, efValue);
 
     updateOptionIncrementalPrice(efValue, efMonthlyPrice, efOptionMonthlyPrice);
+    
+    updateTotalMonthlyCost();
+
+    updateTotalSetupCost();
 });
+
+
+//! Update Monthly Total Cost (DRY ATTEMPT) //
+
+// const optionButtons = document.querySelectorAll('.option');
+
+// if (optionButtons) {
+//     optionButtons.addEventListener('click', () => {
+//         updateTotalMonthlyCost();
+//     });
+// };
+
+
 
 
 //! SEND BUTTON //
@@ -228,29 +289,24 @@ NEXTPAGE_URL = "http://localhost:5500/html/index.html";
 if (submitButton) {
     submitButton.addEventListener('click', () => {
         location.href = NEXTPAGE_URL;
-    })
+    });
 };
 
 
-
-
-
-
-// todo add pricing
-// todo query selector for dry principle for same updating behavior
-// todo query selector in array to (switch)match array position with price array 
-// quelle zip function: https://stackoverflow.com/questions/32937181/javascript-es6-map-multiple-arrays
 
 // todo style.css for when in handy size: first options, rack  pic, output
 
 // todo tests, documentation
 //      delete all unnassary "element" or "options" or alike slang 
 //      principles angewendet: reusability, naming conventions, dry, modularity, single responsibility principle
+
 // todo spam schutz?
 // todo error handling -> try {} catch() {} 
 // const x = condition ? 1 : 2;
 
+// todo query selector for dry principle for same updating behavior
 // todo extra field for special things, controll what can be writen in it?
+// todo komplette preisliste anzeigen können
 
 // todo get.js 
 //      -> https://netbox.intern.speedbone.work/dcim/racks/

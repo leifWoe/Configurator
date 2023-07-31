@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Configurator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/fonts/cloudicon/cloudicon.css" rel="stylesheet">
@@ -36,7 +37,6 @@
                   <img id="rack_photo" src="/assets/rack_photo.jpg" alt="Rack">
                 </div>
               </div>
-
               <div class="col-md-12 col-lg-6">
                 <div class="wrappper">
                   <div class="row">
@@ -63,11 +63,11 @@
                         
                         <div class="totalCostContainer mt-3 pt-3 border-top">
                           <span>Total monthly: </span>
-                          <input type="text" name="totalMonthlyCost" id="totalMonthlyCost" value="812" class="text-align-right" readonly>
+                          <input type="text" name="totalMonthlyCost" id="totalMonthlyCost" value="852" class="pl-4 text-align-right" readonly>
                           <span>€</span>
 
                           <span>Total Setup Cost: </span>
-                          <input type="text" name="totalSetupCost" id="totalSetupCost" value="812" class="text-align-right" readonly>
+                          <input type="text" name="totalSetupCost" id="totalSetupCost" value="1162" class="pl-2 text-align-right" readonly>
                           <span>€</span>
                         </div>
 
@@ -78,7 +78,6 @@
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -99,13 +98,13 @@
                               <h4>Sizes</h4>
                               <p>800x1200 mm</p>
                               <div class="size">
-                                <button class="sizeOptions" type="button">
+                                <button class="option sizeOptions btn btn-default" type="button">
                                     1/1
                                 </button>
-                                <button class="sizeOptions" type="button">
+                                <button class="option sizeOptions btn btn-default" type="button">
                                     1/2
                                 </button>
-                                <button class="sizeOptions" type="button">
+                                <button class="option sizeOptions btn btn-default" type="button">
                                     1/4
                                 </button>
                               </div>
@@ -118,10 +117,10 @@
                             <td class="title">
                               <h4>Location</h4>
                               <div class="location">
-                                <button class="locationOptions" type="button">
+                                <button class="option locationOptions btn btn-default" type="button">
                                     in Cage
                                 </button>
-                                <button class="locationOptions" type="button">
+                                <button class="option locationOptions btn btn-default" type="button">
                                     open Space
                                 </button>
                               </div>
@@ -134,8 +133,12 @@
                             <td class="title">
                               <h4>Uplinks</h4>
                               <div class="uplinks">
-                                <button id="uplinksMinusOption" type="button">-</button>
-                                <button id="uplinksPlusOption" type="button">+</button>
+                                <button id="uplinksMinusOption" class="option btn btn-default" type="button">
+                                  -
+                                </button>
+                                <button id="uplinksPlusOption" class="option btn btn-default" type="button">
+                                  +
+                                </button>
                               </div>
                               <span id="uplinksOptionMonthlyPrice" class="monthlyPrice">12</span>
                               <span>€</span>
@@ -146,8 +149,12 @@
                             <td class="title">
                               <h4>Cross Connects</h4>
                               <div class="cc">
-                                <button id="ccMinusOption" type="button">-</button>
-                                <button id="ccPlusOption" type="button">+</button>
+                                <button id="ccMinusOption" class="option btn btn-default" type="button">
+                                  -
+                                </button>
+                                <button id="ccPlusOption" class="option btn btn-default" type="button">
+                                  +
+                                </button>
                               </div>
                               <span id="ccOptionMonthlyPrice" class="monthlyPrice">50</span>
                               <span>€</span>
@@ -159,8 +166,8 @@
                               <h4>Service Packages</h4>
                               <p>Individual Remote Services  and Backup Solutions</p>
                               <div class="rsp">
-                                <button id="rspNoOption" class="rspOptions" type="button">Yes</button>
-                                <button id="rspYesOption" class="rspOptions" type="button">No</button>
+                                <button id="rspNoOption" class="option rspOptions btn btn-default" type="button">Yes</button>
+                                <button id="rspYesOption" class="option rspOptions btn btn-default" type="button">No</button>
                               </div>
                               <span id="rspOptionMonthlyPrice" class="monthlyPrice">50</span>
                               <span>€</span>
@@ -172,8 +179,8 @@
                               <h4>Electricity Feeds</h4>
                               <p>electricity is consumption dependent 0.3405 € per kWh excluding VAT</p>
                               <div class="ef">
-                                <button id="efMinusOption" type="button">-</button>
-                                <button id="efPlusOption" type="button">+</button>
+                                <button id="efMinusOption" class="option btn btn-default" type="button">-</button>
+                                <button id="efPlusOption" class="option btn btn-default" type="button">+</button>
                               </div>
                               <span id="efOptionMonthlyPrice" class="monthlyPrice">40</span>
                               <span>€</span>
